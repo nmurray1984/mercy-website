@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{% block title %}{{ "site.title" | t }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ "site.description" | t }}{% endblock %}" />
+<link rel="icon" href="{{ "site.favicon" | timg }}" />
+<link rel="stylesheet" href="{{ asset('styles.css') }}" />
+{% block head %}{% endblock %}
+</head>
+<body>
+
+{% include "_partials/header.njk" %}
+{% include "_partials/mobile-menu.njk" %}
+
+{% block content %}{% endblock %}
+
+{% include "_partials/footer.njk" %}
+
+<script src="{{ asset('script.js') }}"></script>
+</body>
+</html>

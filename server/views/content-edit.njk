@@ -1,0 +1,66 @@
+{% extends "_layout.njk" %}
+{% block content %}
+
+<p><a href="/admin/content">&larr; All content</a></p>
+
+<div class="content-edit">
+  <div class="meta">
+    <div><strong>Key:</strong> <code>{{ row.key }}</code></div>
+    <div><strong>Page / section:</strong> {{ row.page }} / {{ row.section }}</div>
+    <div><strong>Kind:</strong> <span class="kind kind-{{ row.kind }}">{{ row.kind }}</span></div>
+    {% if row.description %}<div><strong>Notes:</strong> {{ row.description }}</div>{% endif %}
+    {% if row.updated_at %}<div class="muted">Last updated {{ row.updated_at }}</div>{% endif %}
+  </div>
+
+  <form method="POST" action="/admin/content/{{ row.key }}">
+    <input type="hidden" name="_csrf" value="{{ csrfToken() }}" />
+
+    {% if row.kind == 'image' %}
+      <div class="image-preview">
+        {% if row.value %}<img src="{{ row.value }}" alt="preview" />{% endif %}
+      </div>
+      <label>
+        <span>Image URL or path</span>
+        <input type="text" name="value" value="{{ row.value }}" />
+      </label>
+      <p class="muted">
+        Tip: upload a new image from <a href="/admin/media">Media library</a>, then paste its URL here.
+        Existing remote URLs work too.
+      </p>
+    {% elif row.kind == 'text' %}
+      <label>
+        <span>Value</span>
+        <input type="text" name="value" value="{{ row.value }}" />
+      </label>
+    {% else %}
+      <label>
+        <span>Value ({{ row.kind }})</span>
+        <textarea name="value" rows="14">{{ row.value }}</textarea>
+      </label>
+      <p class="muted">
+        {% if row.kind == 'markdown' %}Use Markdown. Links: [text](url). Italic: *word*. Bold: **word**.
+        {% else %}HTML allowed. Be careful with structural tags.{% endif %}
+      </p>
+    {% endif %}
+
+    <button type="submit">Save changes</button>
+  </form>
+
+  {% if revs and revs.length %}
+  <h3>Recent revisions</h3>
+  <table class="revs">
+    <thead><tr><th>When</th><th>Editor</th><th>Preview</th></tr></thead>
+    <tbody>
+    {% for r in revs %}
+      <tr>
+        <td>{{ r.updated_at }}</td>
+        <td>{{ r.editor or '—' }}</td>
+        <td class="preview"><span class="trunc">{{ r.value | striptags | truncate(120) }}</span></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+</div>
+
+{% endblock %}

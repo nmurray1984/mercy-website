@@ -1,0 +1,17 @@
+{% extends "_layout.njk" %}
+{% block content %}
+
+<p>Signed in as <strong>{{ user.email }}</strong> ({{ user.role }}).</p>
+
+{% if error %}<div class="flash flash-error">{{ error }}</div>{% endif %}
+
+<form method="POST" action="/admin/account" class="form-narrow">
+  <input type="hidden" name="_csrf" value="{{ csrfToken() }}" />
+  <label>
+    <span>New password (min 12 chars)</span>
+    <input type="password" name="password" minlength="12" required autocomplete="new-password" />
+  </label>
+  <button type="submit">Change password</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ title }} · Mercy admin</title>
+<link rel="stylesheet" href="/admin/static/admin.css" />
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <strong>Mercy</strong>
+    <span class="brand-sub">Admin</span>
+  </div>
+  <nav>
+    <a href="/admin"          {% if nav == 'dashboard' %}class="active"{% endif %}>Dashboard</a>
+    <a href="/admin/content"  {% if nav == 'content'   %}class="active"{% endif %}>Content</a>
+    <a href="/admin/media"    {% if nav == 'media'     %}class="active"{% endif %}>Media</a>
+    {% if user.role == 'superuser' %}
+    <a href="/admin/users"    {% if nav == 'users'     %}class="active"{% endif %}>Users</a>
+    {% endif %}
+    <a href="/admin/account">Account</a>
+  </nav>
+  <form method="POST" action="/admin/logout" class="logout">
+    <input type="hidden" name="_csrf" value="{{ csrfToken() }}" />
+    <button type="submit">Sign out</button>
+  </form>
+  {% if user %}
+  <div class="who">
+    <div>{{ user.email }}</div>
+    <div class="role">{{ user.role }}</div>
+  </div>
+  {% endif %}
+</aside>
+
+<main class="main">
+  <header class="topbar">
+    <h1>{{ title }}</h1>
+    <form method="POST" action="/admin/build" class="rebuild">
+      <input type="hidden" name="_csrf" value="{{ csrfToken() }}" />
+      <button type="submit">Rebuild site</button>
+    </form>
+  </header>
+
+  {% if flash.info and flash.info.length %}
+    {% for msg in flash.info %}<div class="flash flash-info">{{ msg }}</div>{% endfor %}
+  {% endif %}
+  {% if flash.error and flash.error.length %}
+    {% for msg in flash.error %}<div class="flash flash-error">{{ msg }}</div>{% endfor %}
+  {% endif %}
+
+  {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>

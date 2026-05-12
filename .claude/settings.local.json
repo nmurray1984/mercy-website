@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:mercydallas.com)",
+      "WebFetch(domain:www.mercydallas.com)",
+      "WebFetch(domain:mercydallas.churchcenter.com)",
+      "Bash(curl -s -L -A \"Mozilla/5.0\" https://www.mercydallas.com/)",
+      "Bash(curl -s -L -A \"Mozilla/5.0\" https://www.mercydallas.com/calendar/)",
+      "Bash(curl -s -L -A \"Mozilla/5.0\" https://www.mercydallas.com/welcome/)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}

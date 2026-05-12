@@ -1,0 +1,40 @@
+{% extends "_layout.njk" %}
+{% block content %}
+
+<form method="POST" action="/admin/media?_csrf={{ csrfToken() }}" enctype="multipart/form-data" class="form-narrow">
+  <label>
+    <span>Upload an image (JPG, PNG, WebP, GIF, SVG; max 8 MB)</span>
+    <input type="file" name="file" accept="image/*" required />
+  </label>
+  <button type="submit">Upload</button>
+</form>
+
+<p class="muted">
+  After uploading, copy the URL below and paste it into the matching content key
+  (kind = <code>image</code>). Then click <strong>Rebuild site</strong> to publish.
+</p>
+
+<div class="media-grid">
+{% for m in items %}
+  <figure class="media-item">
+    {% if m.mime == 'image/svg+xml' %}
+      <img src="/assets/img/uploads/{{ m.filename }}" alt="{{ m.original }}" />
+    {% else %}
+      <img src="/assets/img/uploads/{{ m.filename }}" alt="{{ m.original }}" />
+    {% endif %}
+    <figcaption>
+      <code class="filename">/assets/img/uploads/{{ m.filename }}</code>
+      <div class="muted">{{ m.width or '?' }} × {{ m.height or '?' }} · {{ (m.byte_size / 1024) | round }} KB</div>
+      <form method="POST" action="/admin/media/{{ m.id }}/delete"
+            onsubmit="return confirm('Delete {{ m.filename }}?');">
+        <input type="hidden" name="_csrf" value="{{ csrfToken() }}" />
+        <button type="submit" class="danger small">Delete</button>
+      </form>
+    </figcaption>
+  </figure>
+{% else %}
+  <p class="muted">No images uploaded yet.</p>
+{% endfor %}
+</div>
+
+{% endblock %}

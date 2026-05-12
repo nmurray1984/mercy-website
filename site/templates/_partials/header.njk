@@ -1,0 +1,24 @@
+<header class="site-top">
+  <div class="site-top-strip">
+    <div class="container">
+      <span>{{ "header.strip.left" | thtml }}</span>
+      <span class="right"><a href="/visit">{{ "header.strip.right" | t }} &rarr;</a></span>
+    </div>
+  </div>
+  <nav class="container site-nav" aria-label="Primary">
+    <a href="/" class="wordmark">
+      <span class="mark">M</span>
+      <span>{{ "header.wordmark.name" | t }}</span>
+      <span class="sub">{{ "header.wordmark.sub" | thtml }}</span>
+    </a>
+    <ul class="nav-list">
+      <li><a href="/visit"   {% if active == 'visit'   %}class="active"{% endif %}>Visit</a></li>
+      <li><a href="/about"   {% if active == 'about'   %}class="active"{% endif %}>About</a></li>
+      <li><a href="/sermons" {% if active == 'sermons' %}class="active"{% endif %}>Sermons</a></li>
+      <li><a href="/groups"  {% if active == 'groups'  %}class="active"{% endif %}>Groups</a></li>
+      <li><a href="/events"  {% if active == 'events'  %}class="active"{% endif %}>Events</a></li>
+    </ul>
+    <a href="/give" class="nav-give">Give</a>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </nav>
+</header>

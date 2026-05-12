@@ -1,0 +1,191 @@
+{% extends "_layout.njk" %}
+{% block title %}{{ "home.title" | t }}{% endblock %}
+{% block description %}{{ "home.description" | t }}{% endblock %}
+
+{% block content %}
+
+<!-- ============== Hero ============== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-dateline reveal" data-delay="100">
+          {{ "home.hero.dateline" | thtml }}
+        </div>
+        <h1 class="reveal" data-delay="200">
+          {{ "home.hero.headline" | thtml }}
+        </h1>
+      </div>
+      <div class="hero-side reveal" data-delay="400">
+        <div class="hero-img">
+          <img src="{{ "home.hero.image" | timg }}" alt="{{ "home.hero.image_alt" | t }}" />
+        </div>
+        <div class="hero-meta">
+          {{ "home.hero.meta" | thtml }}
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-footer">
+      <a href="/visit" class="hero-footer-item reveal" data-delay="500">
+        <div class="num">I.</div>
+        <div class="title">{{ "home.hero_card_1.title" | t }}</div>
+        <div class="desc">{{ "home.hero_card_1.desc" | t }}</div>
+      </a>
+      <a href="/sermons" class="hero-footer-item reveal" data-delay="600">
+        <div class="num">II.</div>
+        <div class="title">{{ "home.hero_card_2.title" | t }}</div>
+        <div class="desc">{{ "home.hero_card_2.desc" | t }}</div>
+      </a>
+      <a href="/groups" class="hero-footer-item reveal" data-delay="700">
+        <div class="num">III.</div>
+        <div class="title">{{ "home.hero_card_3.title" | t }}</div>
+        <div class="desc">{{ "home.hero_card_3.desc" | t }}</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Pull quote ============== -->
+<section class="pull-quote tight">
+  <div class="container-narrow">
+    <span class="mark">&ldquo;</span>
+    <blockquote>
+      {{ "home.pullquote.body" | thtml }}
+    </blockquote>
+    <div class="attr">{{ "home.pullquote.attr" | t }}</div>
+  </div>
+</section>
+
+<!-- ============== Three commitments ============== -->
+<section>
+  <div class="container">
+    <div class="section-label in-view">
+      <span class="roman">§ I.</span><span>Our three commitments</span>
+    </div>
+    <div class="commitments in-view">
+      <div class="commitment">
+        <span class="roman">I.</span>
+        <h3>{{ "home.commitments.gathering.title" | t }}</h3>
+        <p>{{ "home.commitments.gathering.body" | thtml }}</p>
+        <div class="verse">{{ "home.commitments.gathering.verse" | t }}</div>
+      </div>
+      <div class="commitment">
+        <span class="roman">II.</span>
+        <h3>{{ "home.commitments.growing.title" | t }}</h3>
+        <p>{{ "home.commitments.growing.body" | thtml }}</p>
+        <div class="verse">{{ "home.commitments.growing.verse" | t }}</div>
+      </div>
+      <div class="commitment">
+        <span class="roman">III.</span>
+        <h3>{{ "home.commitments.going.title" | t }}</h3>
+        <p>{{ "home.commitments.going.body" | thtml }}</p>
+        <div class="verse">{{ "home.commitments.going.verse" | t }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Featured sermon ============== -->
+<section class="bg-paper-soft">
+  <div class="container">
+    <div class="section-label in-view">
+      <span class="roman">§ II.</span><span>This Sunday's sermon</span>
+    </div>
+    <div class="featured-sermon in-view">
+      <div class="featured-sermon-art">
+        <img src="{{ "home.featured.image" | timg }}" alt="{{ "home.featured.image_alt" | t }}" onerror="this.style.display='none'" />
+        <div class="series-label">{{ "home.featured.series_label" | t }}</div>
+      </div>
+      <div class="featured-sermon-content">
+        <div class="eyebrow"><span class="num">{{ "home.featured.eyebrow_num" | t }}</span>{{ "home.featured.eyebrow_date" | t }}</div>
+        <h2>{{ "home.featured.title" | thtml }}</h2>
+        <div class="passage">{{ "home.featured.passage" | t }}</div>
+        <p>{{ "home.featured.summary" | thtml }}</p>
+        <div class="audio-player">
+          <button class="audio-play-btn" aria-label="Play sermon"></button>
+          <div class="audio-info">
+            <span>{{ "home.featured.audio_title" | t }}</span>
+            <div class="audio-progress"></div>
+            <span class="audio-time">12:34 &middot; 38:21</span>
+          </div>
+          <span class="audio-meta">Download &uarr;</span>
+        </div>
+        <div class="mt-32">
+          <a href="/sermons" class="link-arrow">Read &amp; listen <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Sermon series strip ============== -->
+<section>
+  <div class="container">
+    <div class="section-label in-view">
+      <span class="roman">§ III.</span><span>Recent series</span>
+    </div>
+    <div class="three-up in-view">
+      <a href="/sermons" class="card">
+        <div class="eyebrow gold mb-16">{{ "home.series_1.eyebrow" | t }}</div>
+        <h3 class="display-italic">{{ "home.series_1.title" | thtml }}</h3>
+        <p class="muted mt-32">{{ "home.series_1.body" | thtml }}</p>
+      </a>
+      <a href="/sermons" class="card">
+        <div class="eyebrow mb-16">{{ "home.series_2.eyebrow" | t }}</div>
+        <h3 class="display-italic">{{ "home.series_2.title" | thtml }}</h3>
+        <p class="muted mt-32">{{ "home.series_2.body" | thtml }}</p>
+      </a>
+      <a href="/sermons" class="card">
+        <div class="eyebrow mb-16">{{ "home.series_3.eyebrow" | t }}</div>
+        <h3 class="display-italic">{{ "home.series_3.title" | thtml }}</h3>
+        <p class="muted mt-32">{{ "home.series_3.body" | thtml }}</p>
+      </a>
+    </div>
+    <div class="mt-48 center">
+      <a href="/sermons" class="btn">All sermons <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Upcoming events ============== -->
+<section class="bg-paper-soft">
+  <div class="container">
+    <div class="section-label in-view">
+      <span class="roman">§ IV.</span><span>In the week ahead</span>
+    </div>
+    <div class="events-list in-view">
+      {{ "home.events.body" | thtml }}
+    </div>
+    <div class="mt-48 center">
+      <a href="/events" class="btn">Full calendar <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== A note for visitors ============== -->
+<section>
+  <div class="container">
+    <div class="grid-12 in-view">
+      <div style="grid-column: span 5;">
+        <div class="section-label">
+          <span class="roman">§ V.</span><span>If you're new</span>
+        </div>
+        <h2>{{ "home.firsttime.headline" | thtml }}</h2>
+      </div>
+      <div style="grid-column: span 7;">
+        <p class="dropcap" style="font-size: 1.1rem; line-height: 1.7;">
+          {{ "home.firsttime.body_1" | thtml }}
+        </p>
+        <p style="margin-top: 18px; font-size: 1.1rem; line-height: 1.7; color: var(--ink-soft);">
+          {{ "home.firsttime.body_2" | thtml }}
+        </p>
+        <div class="mt-32">
+          <a href="/visit" class="btn btn-solid">Plan your visit <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "_layout.njk" %}
+{% block title %}{{ "groups.title" | t }}{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+  <div class="container">
+    <div class="kicker reveal" data-delay="100">{{ "groups.kicker" | t }}</div>
+    <h1 class="reveal" data-delay="200">{{ "groups.headline" | thtml }}</h1>
+    <p class="deck reveal" data-delay="300">{{ "groups.deck" | t }}</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="grid-12 in-view">
+      <div style="grid-column: span 5;">
+        <div class="section-label"><span class="roman">§ I.</span><span>What they are</span></div>
+      </div>
+      <div style="grid-column: span 7;">
+        <p style="font-size: 1.15rem; line-height: 1.7;">
+          {{ "groups.intro.body_1" | thtml }}
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.7; margin-top: 16px; color: var(--ink-soft);">
+          {{ "groups.intro.body_2" | thtml }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="filter-bar group-filter-bar">
+      <span class="filter-label">Filter by</span>
+      <button class="chip group-filter is-active" data-filter="all">All groups</button>
+      <button class="chip group-filter" data-filter="north">North Dallas</button>
+      <button class="chip group-filter" data-filter="east">East Dallas</button>
+      <button class="chip group-filter" data-filter="uptown">Uptown</button>
+      <button class="chip group-filter" data-filter="suburb">Northern suburbs</button>
+    </div>
+    <div class="filter-bar group-filter-bar" style="border-bottom: 0; padding-bottom: 0; margin: 0 0 32px;">
+      <span class="filter-label">Life stage</span>
+      <button class="chip group-filter is-active" data-filter="all">Open to all</button>
+      <button class="chip group-filter" data-filter="young-pros">Young professionals</button>
+      <button class="chip group-filter" data-filter="families">Young families</button>
+      <button class="chip group-filter" data-filter="mixed">Mixed</button>
+      <button class="chip group-filter" data-filter="empty-nest">Empty-nesters</button>
+    </div>
+
+    <div class="groups-grid">
+      {{ "groups.list.body" | thtml }}
+    </div>
+  </div>
+</section>
+
+<section class="bg-paper-soft">
+  <div class="container">
+    <div class="grid-12 in-view">
+      <div style="grid-column: span 6;">
+        <div class="section-label"><span class="roman">§ II.</span><span>Not sure where to start?</span></div>
+        <h2>{{ "groups.help.headline" | thtml }}</h2>
+      </div>
+      <div style="grid-column: span 6;">
+        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--ink-soft);">
+          {{ "groups.help.body" | thtml }}
+        </p>
+        <div class="mt-32" style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="mailto:{{ "footer.col_address.email" | t }}" class="btn btn-solid">Get a recommendation <span class="arrow">&rarr;</span></a>
+          <a href="#" class="btn">Map of groups <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

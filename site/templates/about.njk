@@ -1,0 +1,119 @@
+{% extends "_layout.njk" %}
+{% block title %}{{ "about.title" | t }}{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+  <div class="container">
+    <div class="kicker reveal" data-delay="100">{{ "about.kicker" | t }}</div>
+    <h1 class="reveal" data-delay="200">{{ "about.headline" | thtml }}</h1>
+    <p class="deck reveal" data-delay="300">{{ "about.deck" | t }}</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="grid-12 in-view">
+      <div style="grid-column: span 4;">
+        <div class="section-label"><span class="roman">§ I.</span><span>Our mission</span></div>
+      </div>
+      <div style="grid-column: span 8;">
+        <p style="font-family: var(--display); font-size: 2rem; line-height: 1.25; font-weight: 300; font-variation-settings: 'SOFT' 70;">
+          {{ "about.mission.body" | thtml }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-paper-soft">
+  <div class="container">
+    <div class="section-label in-view"><span class="roman">§ II.</span><span>Three commitments</span></div>
+    <div class="commitments in-view">
+      <div class="commitment">
+        <span class="roman">I.</span>
+        <h3>{{ "about.commitments.gathering.title" | t }}</h3>
+        <p>{{ "about.commitments.gathering.body" | thtml }}</p>
+        <div class="verse">{{ "about.commitments.gathering.verse" | t }}</div>
+      </div>
+      <div class="commitment">
+        <span class="roman">II.</span>
+        <h3>{{ "about.commitments.growing.title" | t }}</h3>
+        <p>{{ "about.commitments.growing.body" | thtml }}</p>
+        <div class="verse">{{ "about.commitments.growing.verse" | t }}</div>
+      </div>
+      <div class="commitment">
+        <span class="roman">III.</span>
+        <h3>{{ "about.commitments.going.title" | t }}</h3>
+        <p>{{ "about.commitments.going.body" | thtml }}</p>
+        <div class="verse">{{ "about.commitments.going.verse" | t }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="grid-12 in-view">
+      <div style="grid-column: span 5;">
+        <div class="section-label"><span class="roman">§ III.</span><span>What we believe</span></div>
+        <h2>{{ "about.beliefs.headline" | thtml }}</h2>
+      </div>
+      <div style="grid-column: span 7;">
+        <p class="dropcap" style="font-size: 1.05rem; line-height: 1.7;">
+          {{ "about.beliefs.body_1" | thtml }}
+        </p>
+        <p style="margin-top: 18px; font-size: 1.05rem; line-height: 1.7; color: var(--ink-soft);">
+          {{ "about.beliefs.body_2" | thtml }}
+        </p>
+        <div class="mt-32" style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="{{ "about.beliefs.link_1_url" | t }}" class="link-arrow">{{ "about.beliefs.link_1_text" | t }} <span class="arrow">&rarr;</span></a>
+          <a href="{{ "about.beliefs.link_2_url" | t }}" class="link-arrow">{{ "about.beliefs.link_2_text" | t }} <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership" class="bg-paper-soft">
+  <div class="container">
+    <div class="section-label in-view"><span class="roman">§ IV.</span><span>Our staff</span></div>
+    <h2 class="in-view mb-48">{{ "about.staff.headline" | thtml }}</h2>
+    <div class="leaders in-view">
+      {{ "about.staff.body" | thtml }}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="grid-12">
+      <div style="grid-column: span 6;" class="in-view">
+        <div class="section-label"><span class="roman">§ V.</span><span>Session of Elders</span></div>
+        <p class="muted mb-32">{{ "about.elders.intro" | thtml }}</p>
+        <div class="roster" style="grid-template-columns: 1fr;">
+          {{ "about.elders.body" | thtml }}
+        </div>
+      </div>
+      <div style="grid-column: span 6;" class="in-view">
+        <div class="section-label"><span class="roman">§ VI.</span><span>Diaconate</span></div>
+        <p class="muted mb-32">{{ "about.deacons.intro" | thtml }}</p>
+        <div class="roster" style="grid-template-columns: 1fr;">
+          {{ "about.deacons.body" | thtml }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pull-quote">
+  <div class="container-narrow">
+    <span class="mark">&ldquo;</span>
+    <blockquote>
+      {{ "about.pullquote.body" | thtml }}
+    </blockquote>
+    <div class="attr">{{ "about.pullquote.attr" | t }}</div>
+  </div>
+</section>
+
+{% endblock %}

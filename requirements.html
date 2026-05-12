@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mercy Presbyterian — New Website Requirements (Discussion Draft)</title>
+<style>
+  :root {
+    --ink: #1f2933;
+    --muted: #5b6671;
+    --accent: #6b4f3a;
+    --accent-soft: #f3ece4;
+    --rule: #d9d3cc;
+    --tag-bg: #eef2f7;
+    --tag-ink: #334155;
+    --gap-bg: #fff6e6;
+    --gap-ink: #7a5300;
+    --have-bg: #e8f3ec;
+    --have-ink: #1f6b3a;
+  }
+  * { box-sizing: border-box; }
+  html { background: #fafaf7; }
+  body {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    color: var(--ink);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+    line-height: 1.55;
+    background: #fafaf7;
+  }
+  header.cover {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+  .eyebrow {
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  h1 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .tagline {
+    font-style: italic;
+    color: var(--muted);
+    margin: 0 0 16px;
+  }
+  .meta {
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  h2 {
+    font-size: 22px;
+    margin: 40px 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+  }
+  h3 {
+    font-size: 16px;
+    margin: 22px 0 6px;
+    color: var(--accent);
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    font-weight: 600;
+  }
+  p { margin: 0 0 12px; }
+  ul { padding-left: 22px; margin: 8px 0 12px; }
+  ul li { margin-bottom: 6px; }
+  .intro {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 0 0 32px;
+    font-size: 15px;
+  }
+  .intro p { margin-bottom: 8px; }
+  .intro p:last-child { margin-bottom: 0; }
+  .feature {
+    margin-bottom: 18px;
+  }
+  .feature-title {
+    font-weight: 600;
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .feature-desc {
+    font-size: 14.5px;
+    color: var(--ink);
+    margin: 4px 0 6px;
+  }
+  .note {
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 2px 0;
+  }
+  .tag {
+    display: inline-block;
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: var(--tag-bg);
+    color: var(--tag-ink);
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  .tag.have { background: var(--have-bg); color: var(--have-ink); }
+  .tag.gap  { background: var(--gap-bg);  color: var(--gap-ink); }
+  .stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    font-size: 13.5px;
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .stack dt { font-weight: 600; }
+  .stack dd { margin: 0; color: var(--muted); }
+  .questions {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  .questions ol { padding-left: 22px; }
+  .questions li { margin-bottom: 10px; font-size: 14.5px; }
+  footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  @media print {
+    html, body { background: #fff; }
+    body { max-width: none; padding: 24px; font-size: 12pt; }
+    h2 { page-break-after: avoid; }
+    .feature, .questions { page-break-inside: avoid; }
+    .intro { background: #f5f5f5; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <p class="eyebrow">Discussion Draft &middot; For Elder Review</p>
+  <h1>Mercy Presbyterian Church &mdash; New Website Requirements</h1>
+  <p class="tagline">What the new mercydallas.com should do.</p>
+  <p class="meta">Prepared by Nathan Murray &middot; Based on a review of the current site at mercydallas.com</p>
+</header>
+
+<section class="intro">
+  <p><strong>What this is.</strong> A plain-English list of everything the church website needs to do. Not a design, not a tech plan &mdash; just the capabilities. Once we agree on the list, we can decide how to build it (rebuild on the current platform, move to a new one, or hire someone).</p>
+  <p><strong>How to read it.</strong> Each item describes one capability. Tags show whether we have it today on the current site (<span class="tag have">Have today</span>), or it's currently weak or missing (<span class="tag gap">Gap</span>). Bring your edits, additions, or "we don't need this" notes to the next meeting.</p>
+</section>
+
+<h2>1. Who We Are</h2>
+<p>Anyone landing on the site &mdash; a visitor, a curious neighbor, a family relocating to Dallas &mdash; should quickly understand what kind of church Mercy is and how to come.</p>
+
+<div class="feature">
+  <div class="feature-title">Welcome &amp; what to expect on Sunday <span class="tag have">Have today</span></div>
+  <div class="feature-desc">A page that introduces Mercy to a first-time visitor: service time, what worship looks like (expository preaching, weekly communion, music, liturgy), PCA affiliation, where to park, what to do with kids.</div>
+  <div class="note">Currently covered on /welcome/. The new site should expand parking and "what to expect" detail.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Mission &amp; commitments <span class="tag have">Have today</span></div>
+  <div class="feature-desc">A statement of who we are and our three commitments (Gathering, Growing, Going).</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Beliefs / "What we believe" <span class="tag gap">Gap</span></div>
+  <div class="feature-desc">A short, plain-language statement of doctrine for newcomers, with a link to the Westminster Standards / PCA's Book of Church Order for those who want depth.</div>
+  <div class="note">Currently implied through PCA affiliation but not stated directly.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Leadership directory <span class="tag have">Have today</span></div>
+  <div class="feature-desc">Photos and bios for staff, pastor, elders, and deacons. Each entry should include the person's role, and a way to contact them (or the group) by email.</div>
+  <div class="note">Currently lists 9 elders, 6 deacons, 6 staff with email links. Photos are uneven &mdash; the new site should standardize portraits.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Location, directions &amp; service times <span class="tag gap">Gap</span></div>
+  <div class="feature-desc">An interactive map with the address, a note that we meet inside Temple Shalom, parking instructions, accessibility info, and Sunday service time prominently displayed.</div>
+  <div class="note">Today the /map/ page shows the address as text only. There is no embedded map, no parking diagram, and no accessibility notes.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Contact &amp; phone number <span class="tag have">Have today</span></div>
+  <div class="feature-desc">Address, phone, and a general email visible on every page.</div>
+</div>
+
+<h2>2. Sermons &amp; Worship</h2>
+<p>This is the most-used part of the current site. Visitors find us through sermons; members re-listen and share them.</p>
+
+<div class="feature">
+  <div class="feature-title">Sermon archive <span class="tag have">Have today</span></div>
+  <div class="feature-desc">A searchable, filterable library of every sermon preached at Mercy. Filter by preacher, sermon series, topic, and book of the Bible. Sort by date.</div>
+  <div class="note">Today: ~418 sermons across 36 series. Filters work. Pagination is heavy (32 pages) &mdash; the new site should have better search.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Individual sermon pages <span class="tag have">Have today</span></div>
+  <div class="feature-desc">Each sermon has a page with: title, date, preacher, series, scripture passage, an audio player, and a download link.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Podcast feed <span class="tag gap">Gap</span></div>
+  <div class="feature-desc">Sermons should be available as a podcast people can subscribe to in Apple Podcasts, Spotify, etc. &mdash; not just played on the website.</div>
+  <div class="note">No public podcast feed surfaced today.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Sermon notes &amp; manuscripts <span class="tag gap">Gap</span></div>
+  <div class="feature-desc">Optional: attach a PDF of the sermon manuscript or outline to each sermon for those who like to read along or revisit.</div>
+  <div class="note">Not present today. Decision needed: do we want this?</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Live stream <span class="tag have">Have today</span></div>
+  <div class="feature-desc">Sunday service at 10 AM streamed live for members who can't attend. Past services available for replay.</div>
+  <div class="note">Today the "Watch Live" page links out to YouTube (channel UCBS8B-OvEckPZ60nguz7hHA). Consider embedding it on-site so people don't leave.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Order of worship <span class="tag have">Have today</span></div>
+  <div class="feature-desc">A downloadable bulletin / order of worship for the current Sunday, with hymns, scripture readings, and prayers.</div>
+  <div class="note">Today: PDF on the Watch Live page. Consider an HTML version so it's readable on a phone without downloading.</div>
+</div>
+
+<h2>3. Ministries &amp; Community Life</h2>
+
+<div class="feature">
+  <div class="feature-title">Ministry pages (Women's, Men's, Children's, Youth) <span class="tag have">Have today</span></div>
+  <div class="feature-desc">Each ministry has its own page describing what it does, who it's for, meeting times, the leader, and how to get involved or register.</div>
+  <div class="note">Children's ministry should keep its age-group breakdown (nursery / toddler SS / Children's Church / Elementary SS) and the parenting resources PDF.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Community groups directory <span class="tag gap">Gap</span></div>
+  <div class="feature-desc">A list of every community group with: the host family, neighborhood/zip code, meeting night, life stage focus, and how to join. Today this exists only as a single descriptive paragraph &mdash; new members have to email to learn anything specific.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Events calendar <span class="tag gap">Gap</span></div>
+  <div class="feature-desc">A real calendar &mdash; not a stub page &mdash; showing upcoming services, studies, retreats, fellowship events, work days, and meetings. Filterable by ministry. Events should have detail pages with location, description, and a "register" or "RSVP" button.</div>
+  <div class="note">Today /calendar/ runs on the All-in-One Event Calendar plugin but the public view is sparse. The new site should make the calendar a first-class feature.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Event registration <span class="tag have">Have today</span></div>
+  <div class="feature-desc">For studies, retreats, and dinners that require a head count, users should be able to register online &mdash; including listing dietary needs, childcare needs, or paying a fee where applicable.</div>
+  <div class="note">Today: handled in Church Center (Planning Center). The new website should link cleanly to those registration forms.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Bible study materials <span class="tag gap">Gap</span></div>
+  <div class="feature-desc">Current Bible study books, dates, and discussion guides easily findable in one place &mdash; not spread across each ministry page.</div>
+</div>
+
+<h2>4. Get Involved</h2>
+
+<div class="feature">
+  <div class="feature-title">Volunteer / Serve at Mercy <span class="tag have">Have today</span></div>
+  <div class="feature-desc">List the roles &mdash; greeters, hospitality, sound, music, children's ministry, communion table guild &mdash; and let people sign up directly, not just email and wait.</div>
+  <div class="note">Today the page describes the roles but offers no signup form. New site should have a real form.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Serve in Dallas (mission partners) <span class="tag have">Have today</span></div>
+  <div class="feature-desc">Showcase our local and global mission partners (currently RUF, Casa Del Lago, RUF International), with a paragraph on each and a way to give or volunteer.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Newsletter signup <span class="tag gap">Gap</span></div>
+  <div class="feature-desc">A real email signup form on the site &mdash; one click, name and email, done.</div>
+  <div class="note">Today the "subscribe" link just opens a mailto with a pre-filled subject line. Most visitors will not complete that.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Contact form <span class="tag gap">Gap</span></div>
+  <div class="feature-desc">A short "ask a question / I'm new / get in touch" form that routes to the right staff member.</div>
+  <div class="note">Today everything is a mailto link, which doesn't work well from many devices.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Careers / open positions <span class="tag have">Have today</span></div>
+  <div class="feature-desc">A page that shows current openings or says we have none. Optional: a way to express interest for future roles.</div>
+</div>
+
+<h2>5. Giving</h2>
+
+<div class="feature">
+  <div class="feature-title">Online giving <span class="tag have">Have today</span></div>
+  <div class="feature-desc">One-time and recurring gifts, multiple funds (general, missions, special), gift confirmation by email, year-end giving statements.</div>
+  <div class="note">Today: handled in Church Center at mercydallas.churchcenter.com/giving. The new site should keep this integration &mdash; or replace it consciously, not by accident.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Why we give <span class="tag gap">Gap</span></div>
+  <div class="feature-desc">A short page that frames giving theologically and answers practical questions (how is it used, is it tax-deductible, who can I ask).</div>
+</div>
+
+<h2>6. Member Resources</h2>
+<p>A members-only area is needed for content that isn't appropriate to expose publicly.</p>
+
+<div class="feature">
+  <div class="feature-title">Member login <span class="tag have">Have today</span></div>
+  <div class="feature-desc">Members sign in with the email the church has on file to access protected content.</div>
+  <div class="note">Today this is handled by Instant Church Directory's separate app + portal. A more unified experience would be cleaner.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Pictorial directory <span class="tag have">Have today</span></div>
+  <div class="feature-desc">A photo directory of members and regular attendees, accessible by phone app or web. Members opt-in to share their info.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Forms <span class="tag have">Have today</span></div>
+  <div class="feature-desc">Downloadable forms for members: reimbursement, youth release, etc.</div>
+  <div class="note">New site should consider replacing PDFs with fillable online forms where appropriate.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Policies &amp; parent resources <span class="tag have">Have today</span></div>
+  <div class="feature-desc">Children's ministry policies, resources for parents, and similar reference documents.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Prayer requests <span class="tag gap">Gap</span></div>
+  <div class="feature-desc">A way for members to submit a prayer request that goes to the elders / prayer team.</div>
+</div>
+
+<h2>7. How the Site Works (Cross-Cutting)</h2>
+<p>These aren't "features" per se &mdash; they're qualities the whole site needs.</p>
+
+<div class="feature">
+  <div class="feature-title">Mobile-friendly</div>
+  <div class="feature-desc">More than half of visits will be from phones. Every page needs to be readable and navigable on a small screen.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Easy for staff to update</div>
+  <div class="feature-desc">Alison and any future staff should be able to add a sermon, post an event, or update a ministry page without a developer. No more than a 30-minute training session for the basics.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Site search</div>
+  <div class="feature-desc">A search box that covers sermons, events, pages, and people &mdash; not just sermons.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Visually consistent &amp; warm</div>
+  <div class="feature-desc">A clear, simple visual identity. Photos of our actual sanctuary, people, and Sundays &mdash; not stock images. Reflects "Mercy to us, Mercy through us."</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Fast &amp; accessible</div>
+  <div class="feature-desc">Pages load quickly. Text is readable. Works for screen readers and for visitors with limited vision.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Findable in Google</div>
+  <div class="feature-desc">Someone searching "Presbyterian church near Hillcrest Dallas" or "PCA Dallas" should be able to find us. Basic SEO done right.</div>
+</div>
+
+<div class="feature">
+  <div class="feature-title">Social presence linked</div>
+  <div class="feature-desc">Footer links to Instagram (@mercypresdallas) and Facebook. Sermons and events should be easy to share.</div>
+</div>
+
+<h2>Summary: What's the Current Site Doing?</h2>
+<p>Today's site is a WordPress site on the Divi theme, with two main plugins (Sermon Manager for sermons, All-in-One Event Calendar for events). It integrates with three external services:</p>
+<dl class="stack">
+  <dt>Church Center</dt><dd>Giving, event registration</dd>
+  <dt>YouTube</dt><dd>Sunday live stream &amp; archive</dd>
+  <dt>Instant Church Directory</dt><dd>Pictorial member directory</dd>
+  <dt>(No tool today)</dt><dd>Newsletter signup &mdash; just a mailto link</dd>
+</dl>
+<p>The current site does the basics well (sermons, identity, ministry overviews). The main gaps are around the things visitors and members actually <em>do</em>: register, find an event, join a community group, sign up to volunteer, give a prayer request, get the newsletter. Many of those flow through email today, which adds friction.</p>
+
+<h2>Questions for Discussion</h2>
+<div class="questions">
+  <ol>
+    <li><strong>Are we missing anything?</strong> What does the website need to do that isn't on this list?</li>
+    <li><strong>Are we doing too much?</strong> Anything here we should drop or simplify?</li>
+    <li><strong>Members area:</strong> Do we want a unified login, or keep the separate Instant Church Directory app?</li>
+    <li><strong>Calendar &amp; registration:</strong> Should everything (events, registration, giving, directory) live in Church Center / Planning Center? Or do we want the public website to handle some of it directly?</li>
+    <li><strong>Sermons:</strong> Do we want a real podcast feed and on-demand video, not just YouTube links?</li>
+    <li><strong>Visitor experience:</strong> When a first-time visitor lands on the homepage, what's the single most important thing we want them to do or know?</li>
+    <li><strong>Who owns it after launch?</strong> Who keeps it up to date &mdash; staff, a volunteer, an outside vendor?</li>
+  </ol>
+</div>
+
+<footer>
+  <p>Prepared from a review of mercydallas.com on May 10, 2026. &middot; Sources: site sitemap, page-by-page crawl, plugin and integration inspection.</p>
+</footer>
+
+</body>
+</html>

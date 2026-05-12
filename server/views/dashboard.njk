@@ -1,0 +1,35 @@
+{% extends "_layout.njk" %}
+{% block content %}
+
+<section class="cards">
+  <article class="card">
+    <h3>Content keys</h3>
+    <p class="big">{{ contentCount }}</p>
+    <p class="muted"><a href="/admin/content">Edit content &rarr;</a></p>
+  </article>
+  <article class="card">
+    <h3>Active users</h3>
+    <p class="big">{{ userCount }}</p>
+    {% if user.role == 'superuser' %}<p class="muted"><a href="/admin/users">Manage users &rarr;</a></p>{% endif %}
+  </article>
+  <article class="card">
+    <h3>Last build</h3>
+    {% if lastBuild %}
+      <p>{{ lastBuild.status }} · <span class="muted">{{ lastBuild.finished_at or lastBuild.started_at }}</span></p>
+      <pre class="log">{{ lastBuild.log }}</pre>
+    {% else %}
+      <p class="muted">No builds yet. Click "Rebuild site" above.</p>
+    {% endif %}
+  </article>
+  <article class="card">
+    <h3>Last content edit</h3>
+    {% if lastEdit %}
+      <p><code>{{ lastEdit.key }}</code></p>
+      <p class="muted">{{ lastEdit.updated_at }}</p>
+    {% else %}
+      <p class="muted">No edits yet.</p>
+    {% endif %}
+  </article>
+</section>
+
+{% endblock %}

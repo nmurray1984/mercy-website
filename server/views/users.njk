@@ -1,0 +1,21 @@
+{% extends "_layout.njk" %}
+{% block content %}
+
+<p><a href="/admin/users/new" class="btn-action">New user</a></p>
+
+<table class="users-table">
+  <thead><tr><th>Email</th><th>Role</th><th>Status</th><th>Last login</th><th></th></tr></thead>
+  <tbody>
+  {% for u in users %}
+    <tr>
+      <td>{{ u.email }}</td>
+      <td>{{ u.role }}</td>
+      <td>{% if u.is_active %}Active{% else %}<span class="muted">Inactive</span>{% endif %}</td>
+      <td>{{ u.last_login_at or '—' }}</td>
+      <td><a href="/admin/users/{{ u.id }}">Edit</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

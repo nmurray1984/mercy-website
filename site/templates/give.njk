@@ -1,0 +1,101 @@
+{% extends "_layout.njk" %}
+{% block title %}{{ "give.title" | t }}{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+  <div class="container">
+    <div class="kicker reveal" data-delay="100">{{ "give.kicker" | t }}</div>
+    <h1 class="reveal" data-delay="200">{{ "give.headline" | thtml }}</h1>
+    <p class="deck reveal" data-delay="300">{{ "give.deck" | thtml }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="grid-12 in-view">
+
+      <div style="grid-column: span 6;">
+        <div class="section-label"><span class="roman">§ I.</span><span>Why we give</span></div>
+        <p class="dropcap" style="font-size: 1.1rem; line-height: 1.75;">
+          {{ "give.why.body_1" | thtml }}
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.75; margin-top: 18px;">
+          {{ "give.why.body_2" | thtml }}
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.75; margin-top: 18px;">
+          {{ "give.why.body_3" | thtml }}
+        </p>
+
+        <div style="margin-top: 56px;">
+          <div class="section-label"><span class="roman">§ II.</span><span>Where it goes</span></div>
+          <dl style="display: grid; grid-template-columns: 1fr auto; gap: 14px 24px; font-size: 16px;">
+            {{ "give.allocation.body" | thtml }}
+          </dl>
+          <p class="muted" style="margin-top: 18px; font-size: 14px; font-style: italic;">
+            {{ "give.allocation.note" | thtml }}
+          </p>
+        </div>
+      </div>
+
+      <div style="grid-column: span 6;">
+        <div class="give-form">
+          <div class="eyebrow gold mb-16">Make a gift</div>
+          <h3 style="margin-bottom: 32px;">{{ "give.form.subhead" | t }}</h3>
+
+          <label class="form-label">Frequency</label>
+          <div class="frequency-grid">
+            <button class="freq-btn amount-btn is-active">One-time</button>
+            <button class="freq-btn amount-btn">Recurring</button>
+          </div>
+
+          <label class="form-label">Fund</label>
+          <select class="fund-select">
+            <option>General fund</option>
+            <option>Missions</option>
+            <option>Diaconal fund (mercy)</option>
+            <option>Building fund</option>
+            <option>Children's ministry</option>
+            <option>Youth retreat scholarships</option>
+          </select>
+
+          <label class="form-label">Amount</label>
+          <div class="amount-grid">
+            <button class="amount-btn" data-amount="50">$50</button>
+            <button class="amount-btn is-active" data-amount="100">$100</button>
+            <button class="amount-btn" data-amount="250">$250</button>
+            <button class="amount-btn" data-amount="500">$500</button>
+          </div>
+          <input type="text" class="amount-input" value="$100" />
+
+          <a href="{{ "give.form.giving_url" | t }}" class="btn btn-gold" style="width: 100%; justify-content: center; padding: 18px;">
+            Continue to secure giving <span class="arrow">&rarr;</span>
+          </a>
+
+          <p style="margin-top: 24px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); text-align: center;">
+            {{ "give.form.footnote" | t }}
+          </p>
+        </div>
+
+        <div style="margin-top: 32px; padding: 24px 28px; border: 1px dashed var(--rule); background: var(--paper-soft);">
+          <div class="eyebrow gold mb-16">Other ways to give</div>
+          <ul style="list-style: none; font-size: 15px; line-height: 1.7;">
+            {{ "give.other_ways.body" | thtml }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pull-quote tight">
+  <div class="container-narrow">
+    <span class="mark">&ldquo;</span>
+    <blockquote>
+      {{ "give.pullquote.body" | thtml }}
+    </blockquote>
+    <div class="attr">{{ "give.pullquote.attr" | t }}</div>
+  </div>
+</section>
+
+{% endblock %}

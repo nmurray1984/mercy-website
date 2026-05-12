@@ -1,0 +1,52 @@
+{% extends "_layout.njk" %}
+{% block content %}
+
+<p><a href="/admin/users">&larr; All users</a></p>
+
+{% if error %}<div class="flash flash-error">{{ error }}</div>{% endif %}
+
+<h2>{{ target.email }}</h2>
+
+<form method="POST" action="/admin/users/{{ target.id }}" class="form-narrow">
+  <input type="hidden" name="_csrf" value="{{ csrfToken() }}" />
+  <input type="hidden" name="action" value="update" />
+  <label>
+    <span>Email</span>
+    <input type="email" name="email" value="{{ target.email }}" required />
+  </label>
+  <label>
+    <span>Role</span>
+    <select name="role">
+      <option value="admin"     {% if target.role == 'admin' %}selected{% endif %}>Admin</option>
+      <option value="superuser" {% if target.role == 'superuser' %}selected{% endif %}>Superuser</option>
+    </select>
+  </label>
+  <label class="checkbox">
+    <input type="checkbox" name="is_active" {% if target.is_active %}checked{% endif %} />
+    <span>Active</span>
+  </label>
+  <button type="submit">Save</button>
+</form>
+
+<hr />
+
+<form method="POST" action="/admin/users/{{ target.id }}" class="form-narrow">
+  <input type="hidden" name="_csrf" value="{{ csrfToken() }}" />
+  <input type="hidden" name="action" value="password" />
+  <label>
+    <span>Set new password</span>
+    <input type="text" name="password" minlength="12" autocomplete="new-password" />
+  </label>
+  <button type="submit">Reset password</button>
+</form>
+
+<hr />
+
+<form method="POST" action="/admin/users/{{ target.id }}" class="form-narrow"
+      onsubmit="return confirm('Delete this user? This cannot be undone.');">
+  <input type="hidden" name="_csrf" value="{{ csrfToken() }}" />
+  <input type="hidden" name="action" value="delete" />
+  <button type="submit" class="danger">Delete user</button>
+</form>
+
+{% endblock %}

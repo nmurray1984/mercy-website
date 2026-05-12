@@ -1,0 +1,84 @@
+{% extends "_layout.njk" %}
+{% block title %}{{ "sermons.title" | t }}{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+  <div class="container">
+    <div class="kicker reveal" data-delay="100">{{ "sermons.kicker" | t }}</div>
+    <h1 class="reveal" data-delay="200">{{ "sermons.headline" | thtml }}</h1>
+    <p class="deck reveal" data-delay="300">{{ "sermons.deck" | t }}</p>
+  </div>
+</section>
+
+<!--
+  Sermon archive — v1 placeholder.
+  The mockup's static list is preserved here; the planned v2 work is the
+  schema + admin pages for sermons that turn this into a generated list.
+-->
+<section class="tight">
+  <div class="container">
+    <div class="featured-sermon in-view">
+      <div class="featured-sermon-art">
+        <img src="{{ "sermons.featured.image" | timg }}" alt="{{ "sermons.featured.image_alt" | t }}" onerror="this.style.display='none'" />
+        <div class="series-label">{{ "sermons.featured.series_label" | t }}</div>
+      </div>
+      <div class="featured-sermon-content">
+        <div class="eyebrow"><span class="num">{{ "sermons.featured.eyebrow_num" | t }}</span>{{ "sermons.featured.eyebrow_label" | t }}</div>
+        <h2>{{ "sermons.featured.title" | thtml }}</h2>
+        <div class="passage">{{ "sermons.featured.passage" | t }}</div>
+        <p>{{ "sermons.featured.summary" | thtml }}</p>
+        <div class="audio-player">
+          <button class="audio-play-btn"></button>
+          <div class="audio-info">
+            <span>{{ "sermons.featured.audio_title" | t }}</span>
+            <div class="audio-progress"></div>
+            <span class="audio-time">12:34 &middot; 38:21</span>
+          </div>
+          <span class="audio-meta">Download &uarr;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="section-label"><span class="roman">§ I.</span><span>Browse the archive</span></div>
+
+    <div class="filter-bar">
+      <span class="filter-label">Series</span>
+      <button class="chip is-active" data-filter="all">All series</button>
+      <button class="chip" data-filter="hebrews">Hebrews</button>
+      <button class="chip" data-filter="jonah">Jonah</button>
+      <button class="chip" data-filter="sotm">Sermon on the Mount</button>
+      <button class="chip" data-filter="luke">Luke</button>
+      <button class="chip" data-filter="proverbs">Proverbs</button>
+      <button class="chip" data-filter="ruth">Ruth: Advent</button>
+    </div>
+
+    <div class="filter-bar" style="border-bottom: 0; padding-bottom: 0; margin-bottom: 24px;">
+      <span class="filter-label">Book of the Bible</span>
+      <button class="chip is-active" data-filter="all">All books</button>
+      <button class="chip" data-filter="hebrews">Hebrews</button>
+      <button class="chip" data-filter="matthew">Matthew</button>
+      <button class="chip" data-filter="luke">Luke</button>
+      <button class="chip" data-filter="jonah">Jonah</button>
+      <button class="chip" data-filter="proverbs">Proverbs</button>
+      <button class="chip" data-filter="psalms">Psalms</button>
+      <button class="chip" data-filter="ruth">Ruth</button>
+      <button class="chip" data-filter="more">More &hellip;</button>
+    </div>
+
+    <div class="sermon-list" style="margin-top: 32px;">
+      {{ "sermons.list.body" | thtml }}
+    </div>
+
+    <div class="mt-48 center">
+      <a href="#" class="btn">Older sermons <span class="arrow">&rarr;</span></a>
+      <p class="mt-32 muted" style="font-size: 14px;">{{ "sermons.list.footer" | thtml }}</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

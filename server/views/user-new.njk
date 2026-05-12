@@ -1,0 +1,28 @@
+{% extends "_layout.njk" %}
+{% block content %}
+
+<p><a href="/admin/users">&larr; All users</a></p>
+
+{% if error %}<div class="flash flash-error">{{ error }}</div>{% endif %}
+
+<form method="POST" action="/admin/users" class="form-narrow">
+  <input type="hidden" name="_csrf" value="{{ csrfToken() }}" />
+  <label>
+    <span>Email</span>
+    <input type="email" name="email" required value="{{ email }}" />
+  </label>
+  <label>
+    <span>Role</span>
+    <select name="role">
+      <option value="admin"      {% if role == 'admin' %}selected{% endif %}>Admin</option>
+      <option value="superuser"  {% if role == 'superuser' %}selected{% endif %}>Superuser</option>
+    </select>
+  </label>
+  <label>
+    <span>Initial password (min 12 chars)</span>
+    <input type="text" name="password" required minlength="12" autocomplete="new-password" />
+  </label>
+  <button type="submit">Create user</button>
+</form>
+
+{% endblock %}

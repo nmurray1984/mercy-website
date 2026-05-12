@@ -1,0 +1,48 @@
+<footer class="colophon">
+  <div class="container">
+    <div class="colophon-wordmark">
+      {{ "footer.wordmark" | thtml }}
+    </div>
+    <div class="colophon-grid">
+      <div class="colophon-col">
+        <h4>{{ "footer.col_address.title" | t }}</h4>
+        <div class="colophon-address">{{ "footer.col_address.body" | thtml }}</div>
+        <div class="colophon-contact">
+          <a href="tel:{{ "footer.col_address.phone_link" | t }}">{{ "footer.col_address.phone" | t }}</a>
+          <a href="mailto:{{ "footer.col_address.email" | t }}">{{ "footer.col_address.email" | t }}</a>
+        </div>
+      </div>
+      <div class="colophon-col">
+        <h4>Visit</h4>
+        <ul>
+          <li><a href="/visit">Plan your visit</a></li>
+          <li><a href="/about">About &amp; beliefs</a></li>
+          <li><a href="/about#leadership">Leadership</a></li>
+          <li><a href="/events">This Sunday</a></li>
+        </ul>
+      </div>
+      <div class="colophon-col">
+        <h4>Listen &amp; grow</h4>
+        <ul>
+          <li><a href="/sermons">Sermon archive</a></li>
+          <li><a href="/sermons">Watch live</a></li>
+          <li><a href="/groups">Community groups</a></li>
+          <li><a href="/events">Calendar</a></li>
+        </ul>
+      </div>
+      <div class="colophon-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="/give">Give</a></li>
+          <li><a href="{{ "footer.social.instagram" | t }}">Instagram</a></li>
+          <li><a href="{{ "footer.social.facebook" | t }}">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon-footer">
+      <span>{{ "footer.bottom.left" | t }}</span>
+      <span>{{ "footer.bottom.right" | thtml }}</span>
+    </div>
+  </div>
+</footer>

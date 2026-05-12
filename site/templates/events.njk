@@ -1,0 +1,64 @@
+{% extends "_layout.njk" %}
+{% block title %}{{ "events.title" | t }}{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+  <div class="container">
+    <div class="kicker reveal" data-delay="100">{{ "events.kicker" | t }}</div>
+    <h1 class="reveal" data-delay="200">{{ "events.headline" | thtml }}</h1>
+    <p class="deck reveal" data-delay="300">{{ "events.deck" | t }}</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="filter-bar">
+      <span class="filter-label">View</span>
+      <button class="chip is-active">List</button>
+      <button class="chip">Month</button>
+      <span class="filter-label" style="margin-left: 32px;">Ministry</span>
+      <button class="chip is-active">All</button>
+      <button class="chip">Worship</button>
+      <button class="chip">Women's</button>
+      <button class="chip">Men's</button>
+      <button class="chip">Youth</button>
+      <button class="chip">Children</button>
+      <button class="chip">Community groups</button>
+      <span style="margin-left: auto; align-self: center;">
+        <a href="#" class="link-arrow">Subscribe (iCal) <span class="arrow">&darr;</span></a>
+      </span>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="container">
+    {{ "events.list.body" | thtml }}
+  </div>
+</section>
+
+<section class="bg-paper-soft">
+  <div class="container">
+    <div class="section-label in-view"><span class="roman">§ Recurring</span><span>What happens every week</span></div>
+    <div class="three-up in-view">
+      <div class="card">
+        <div class="eyebrow gold mb-16">{{ "events.recurring.sunday.eyebrow" | t }}</div>
+        <h3>{{ "events.recurring.sunday.title" | thtml }}</h3>
+        <p class="muted mt-32">{{ "events.recurring.sunday.body" | thtml }}</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow gold mb-16">{{ "events.recurring.groups.eyebrow" | t }}</div>
+        <h3>{{ "events.recurring.groups.title" | thtml }}</h3>
+        <p class="muted mt-32">{{ "events.recurring.groups.body" | thtml }}</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow gold mb-16">{{ "events.recurring.women.eyebrow" | t }}</div>
+        <h3>{{ "events.recurring.women.title" | thtml }}</h3>
+        <p class="muted mt-32">{{ "events.recurring.women.body" | thtml }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

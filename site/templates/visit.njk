@@ -1,0 +1,107 @@
+{% extends "_layout.njk" %}
+{% block title %}{{ "visit.title" | t }}{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+  <div class="container">
+    <div class="kicker reveal" data-delay="100">{{ "visit.kicker" | t }}</div>
+    <h1 class="reveal" data-delay="200">{{ "visit.headline" | thtml }}</h1>
+    <p class="deck reveal" data-delay="300">{{ "visit.deck" | t }}</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="grid-12 in-view">
+      <div style="grid-column: span 4;">
+        <div class="section-label">
+          <span class="roman">§ I.</span><span>A letter to you</span>
+        </div>
+      </div>
+      <div style="grid-column: span 8;">
+        <p class="dropcap" style="font-size: 1.2rem; line-height: 1.7;">
+          {{ "visit.letter.body_1" | thtml }}
+        </p>
+        <p style="margin-top: 24px; font-size: 1.1rem; line-height: 1.7; color: var(--ink-soft);">
+          {{ "visit.letter.body_2" | thtml }}
+        </p>
+        <p style="margin-top: 24px; font-family: var(--display); font-style: italic; font-size: 1.3rem; color: var(--gold-deep); font-variation-settings: 'SOFT' 80;">
+          {{ "visit.letter.signature" | thtml }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section>
+  <div class="container">
+    <div class="section-label center" style="justify-content: center;">
+      <span class="roman">§ II.</span><span>The order of worship</span>
+    </div>
+    <div class="bulletin in-view">
+      <div class="bulletin-head">
+        <div class="ord">{{ "visit.bulletin.subtitle" | t }}</div>
+        <h3>{{ "visit.bulletin.title" | t }}</h3>
+      </div>
+      <ul class="bulletin-list">
+        {{ "visit.bulletin.items" | thtml }}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="bg-paper-soft">
+  <div class="container">
+    <div class="section-label in-view"><span class="roman">§ III.</span><span>What you'll want to know</span></div>
+    <div class="two-up in-view" style="gap: 64px;">
+      <div>
+        <h3 style="margin-bottom: 16px;">{{ "visit.info.where.title" | t }}</h3>
+        <p style="color: var(--ink-soft);">{{ "visit.info.where.body" | thtml }}</p>
+        <div style="margin-top: 24px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep);">{{ "visit.info.where.address" | t }}</div>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 16px;">{{ "visit.info.wear.title" | t }}</h3>
+        <p style="color: var(--ink-soft);">{{ "visit.info.wear.body" | thtml }}</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 16px;">{{ "visit.info.communion.title" | t }}</h3>
+        <p style="color: var(--ink-soft);">{{ "visit.info.communion.body" | thtml }}</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 16px;">{{ "visit.info.children.title" | t }}</h3>
+        <p style="color: var(--ink-soft);">{{ "visit.info.children.body" | thtml }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label in-view"><span class="roman">§ IV.</span><span>After the benediction</span></div>
+    <div class="grid-12 in-view">
+      <div style="grid-column: span 7;">
+        <h2 style="margin-bottom: 24px;">{{ "visit.after.headline" | thtml }}</h2>
+        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--ink-soft);">
+          {{ "visit.after.body_1" | thtml }}
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--ink-soft); margin-top: 16px;">
+          {{ "visit.after.body_2" | thtml }}
+        </p>
+        <div class="mt-32">
+          <a href="mailto:{{ "footer.col_address.email" | t }}" class="btn btn-solid">Email us a question <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+      <div style="grid-column: span 5;">
+        <div class="card">
+          <div class="eyebrow gold mb-16">Frequently asked</div>
+          {{ "visit.faq.body" | thtml }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

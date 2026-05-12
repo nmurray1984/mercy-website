@@ -1,0 +1,35 @@
+{% extends "_layout.njk" %}
+{% block content %}
+
+<p class="lede">Click a key to edit. After saving changes, click <strong>Rebuild site</strong> in the top right to publish them.</p>
+
+{% for page, sections in grouped %}
+  <section class="content-page">
+    <h2>{{ page }}</h2>
+    {% for section, items in sections %}
+      <h3 class="content-section">{% if section %}{{ section }}{% else %}(misc){% endif %}</h3>
+      <table class="content-table">
+        <thead><tr><th>Key</th><th>Label</th><th>Kind</th><th>Preview</th><th></th></tr></thead>
+        <tbody>
+        {% for row in items %}
+          <tr>
+            <td><code>{{ row.key }}</code></td>
+            <td>{{ row.label or '' }}</td>
+            <td><span class="kind kind-{{ row.kind }}">{{ row.kind }}</span></td>
+            <td class="preview">
+              {% if row.kind == 'image' %}
+                {% if row.value %}<img src="{{ row.value }}" alt="" />{% else %}<em class="muted">(no image)</em>{% endif %}
+              {% else %}
+                <span class="trunc">{{ row.value | striptags | truncate(80) }}</span>
+              {% endif %}
+            </td>
+            <td><a href="/admin/content/{{ row.key }}">Edit</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    {% endfor %}
+  </section>
+{% endfor %}
+
+{% endblock %}
