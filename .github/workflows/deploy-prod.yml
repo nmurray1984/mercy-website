@@ -1,0 +1,16 @@
+name: Deploy prod
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    # The `prod` GitHub environment should have a required reviewer, so this
+    # job pauses for manual approval before it runs.
+    uses: ./.github/workflows/fly-deploy.yml
+    with:
+      environment: prod
+      config: fly.prod.toml
+    secrets: inherit
