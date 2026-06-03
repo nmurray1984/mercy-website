@@ -1,0 +1,32 @@
+name: Fly deploy (reusable)
+
+# Shared deploy job. Callers pass the GitHub environment (for its scoped
+# FLY_API_TOKEN secret + any protection rules) and the fly config to use.
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: GitHub environment (dev | test | prod)
+        required: true
+        type: string
+      config:
+        description: Path to the fly.<env>.toml config
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Binds the job to the GitHub environment: pulls its FLY_API_TOKEN secret
+    # and enforces its protection rules (e.g. required approval on prod).
+    environment: ${{ inputs.environment }}
+    concurrency:
+      group: fly-deploy-${{ inputs.environment }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Deploy
+        run: flyctl deploy --remote-only --config "${{ inputs.config }}"
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

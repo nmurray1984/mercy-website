@@ -1,0 +1,25 @@
+# Build the image from source only — never copy host artifacts.
+node_modules/
+public/
+data/
+logs/
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+.env
+.git/
+.gitignore
+.DS_Store
+
+# Tests / dev-only
+tests/
+coverage/
+playwright-report/
+test-results/
+playwright.config.js
+vitest.config.js
+
+# Docs / planning
+PLAN.md
+requirements.html
