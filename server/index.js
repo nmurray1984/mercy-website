@@ -127,14 +127,22 @@ const { doubleCsrfProtection, generateToken } = doubleCsrf({
 });
 
 // Expose a token-getter on the request and locals for templates.
-// Pass overwrite=true so the cookie is always regenerated to match the
-// current session identifier. This avoids stale-cookie failures after
-// session.regenerate() on login.
+//
+// overwrite=false: reuse the token already in the CSRF cookie when it is still
+// valid for the current session, instead of minting a new one on every render.
+// Minting a fresh cookie on each render (overwrite=true) desynchronises the
+// cookie from tokens embedded in already-rendered forms — so a reload, the back
+// button, a second tab, or a browser's speculative prefetch of /admin/login
+// silently rotates the cookie and the next form submit fails with
+// "invalid csrf token". validateOnReuse=false means that when the token is NOT
+// valid for the current session (e.g. right after session.regenerate() on
+// login) we silently mint a fresh one bound to the new session id rather than
+// throwing.
 app.use((req, res, next) => {
   let cached = null;
   req.csrfToken = () => {
     if (cached) return cached;
-    cached = generateToken(req, res, true, false);
+    cached = generateToken(req, res, false, false);
     return cached;
   };
   res.locals.csrfToken = req.csrfToken;
