@@ -15,6 +15,7 @@
   </div>
   <nav>
     <a href="/admin"          {% if nav == 'dashboard' %}class="active"{% endif %}>Dashboard</a>
+    <a href="/admin/edit/home" {% if nav == 'edit'     %}class="active"{% endif %}>Edit pages</a>
     <a href="/admin/content"  {% if nav == 'content'   %}class="active"{% endif %}>Content</a>
     <a href="/admin/media"    {% if nav == 'media'     %}class="active"{% endif %}>Media</a>
     {% if user.role == 'superuser' %}

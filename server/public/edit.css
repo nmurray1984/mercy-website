@@ -1,0 +1,116 @@
+/* In-page visual editor chrome. Loaded only on /admin/edit/* (admin only). */
+
+:root {
+  --mw-accent: #b8860b;
+  --mw-bar-h: 52px;
+}
+
+/* Push the page down so the fixed toolbar never covers the header. */
+body.mw-editing {
+  padding-top: var(--mw-bar-h) !important;
+}
+
+.mw-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--mw-bar-h);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 16px;
+  background: #1a1a1a;
+  color: #f4f1ea;
+  font: 14px/1.2 system-ui, -apple-system, sans-serif;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+}
+.mw-bar strong { color: #fff; }
+.mw-bar .mw-spacer { flex: 1; }
+.mw-bar select {
+  background: #2c2c2c; color: #f4f1ea; border: 1px solid #444;
+  border-radius: 6px; padding: 5px 8px; font: inherit;
+}
+.mw-bar button {
+  font: inherit; border: 0; border-radius: 6px; padding: 7px 14px;
+  cursor: pointer; background: #383838; color: #f4f1ea;
+}
+.mw-bar button.mw-publish { background: var(--mw-accent); color: #1a1a1a; font-weight: 600; }
+.mw-bar button:disabled { opacity: .45; cursor: default; }
+.mw-bar a.mw-exit { color: #cdbf9a; text-decoration: none; }
+.mw-status { color: #cdbf9a; font-size: 13px; min-width: 130px; }
+
+/* Editable regions: subtle dashed outline on hover, accent when active. */
+.mw-ed {
+  outline: 1px dashed rgba(184, 134, 11, .55);
+  outline-offset: 2px;
+  cursor: text;
+  border-radius: 2px;
+  transition: background .12s, outline-color .12s;
+}
+.mw-ed:hover { background: rgba(184, 134, 11, .08); }
+.mw-ed[contenteditable="true"] {
+  outline: 2px solid var(--mw-accent);
+  background: rgba(184, 134, 11, .06);
+  cursor: text;
+}
+.mw-ed:focus { outline: 2px solid var(--mw-accent); }
+
+/* Image replace control. */
+.mw-img-wrap { position: relative; display: inline-block; }
+.mw-img-wrap .mw-img-btn {
+  position: absolute; top: 8px; right: 8px;
+  background: rgba(26, 26, 26, .85); color: #fff;
+  border: 0; border-radius: 6px; padding: 6px 10px;
+  font: 13px system-ui, sans-serif; cursor: pointer;
+  opacity: 0; transition: opacity .12s;
+}
+.mw-img-wrap:hover .mw-img-btn { opacity: 1; }
+
+/* Floating format toolbar for rich (html) blocks. */
+.mw-fmt {
+  position: absolute; z-index: 100001;
+  display: flex; gap: 4px; align-items: center;
+  background: #1a1a1a; color: #fff; padding: 6px;
+  border-radius: 8px; box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+  font: 13px system-ui, sans-serif;
+}
+.mw-fmt button, .mw-fmt select {
+  background: #333; color: #fff; border: 0; border-radius: 5px;
+  padding: 5px 8px; cursor: pointer; font: inherit;
+}
+.mw-fmt button:hover { background: #4a4a4a; }
+.mw-fmt button.on { background: var(--mw-accent); color: #1a1a1a; }
+.mw-fmt .sep { width: 1px; height: 20px; background: #444; }
+
+/* Modal (media picker + markdown editor). */
+.mw-modal-bg {
+  position: fixed; inset: 0; z-index: 100002;
+  background: rgba(0, 0, 0, .5);
+  display: flex; align-items: center; justify-content: center;
+}
+.mw-modal {
+  background: #fff; color: #1a1a1a; border-radius: 12px;
+  width: min(760px, 92vw); max-height: 86vh; overflow: auto;
+  padding: 20px; box-shadow: 0 16px 40px rgba(0, 0, 0, .4);
+  font: 15px/1.5 system-ui, sans-serif;
+}
+.mw-modal h2 { margin: 0 0 14px; font-size: 18px; }
+.mw-modal .mw-close { float: right; cursor: pointer; border: 0; background: none; font-size: 22px; line-height: 1; }
+.mw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
+.mw-grid figure { margin: 0; cursor: pointer; border: 2px solid transparent; border-radius: 8px; padding: 4px; }
+.mw-grid figure:hover { border-color: var(--mw-accent); }
+.mw-grid img { width: 100%; height: 90px; object-fit: cover; border-radius: 5px; display: block; }
+.mw-grid figcaption { font-size: 11px; color: #666; margin-top: 4px; word-break: break-all; }
+.mw-modal textarea { width: 100%; min-height: 220px; font: 14px/1.5 ui-monospace, monospace; padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
+.mw-modal .mw-actions { margin-top: 14px; display: flex; gap: 10px; justify-content: flex-end; }
+.mw-modal .mw-actions button { font: inherit; border: 0; border-radius: 6px; padding: 8px 16px; cursor: pointer; }
+.mw-modal .mw-actions .save { background: var(--mw-accent); color: #1a1a1a; font-weight: 600; }
+.mw-upload { margin: 12px 0; padding: 12px; border: 1px dashed #bbb; border-radius: 8px; }
+
+.mw-toast {
+  position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+  background: #1a1a1a; color: #fff; padding: 10px 18px; border-radius: 8px;
+  z-index: 100003; font: 14px system-ui, sans-serif; opacity: 0;
+  transition: opacity .2s; pointer-events: none;
+}
+.mw-toast.show { opacity: .95; }
