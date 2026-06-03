@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{% block title %}{{ "site.title" | t }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ "site.description" | t }}{% endblock %}" />
+<link rel="icon" href="{{ "site.favicon" | timg }}" />
+<link rel="stylesheet" href="{{ asset('design-warm.css') }}" />
+</head>
+<body>
+
+<div class="top-strip">
+  <div class="container">
+    <span>{{ "header.strip.left" | thtml }}</span>
+    <span class="right"><a href="{{ base }}/visit">{{ "header.strip.right" | t }} &rarr;</a></span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="container">
+    <a href="{{ base }}/" class="wordmark">
+      <span class="badge">M</span>
+      <span>
+        <span class="name">{{ "header.wordmark.name" | t }}</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="{{ base }}/visit" {% if active == 'visit' %}class="active"{% endif %}>Visit</a>
+      <a href="{{ base }}/about" {% if active == 'about' %}class="active"{% endif %}>About</a>
+      <a href="/sermons">Sermons</a>
+      <a href="/groups">Groups</a>
+      <a href="/events">Events</a>
+      <a href="/give" class="give">Give</a>
+    </nav>
+  </div>
+</header>
+
+{% block content %}{% endblock %}
+
+<footer class="foot">
+  <div class="container">
+    <div class="wordmark-lg">{{ "header.wordmark.name" | t }}</div>
+    <div class="foot-grid">
+      <div>
+        <h4>{{ "footer.col_address.title" | t }}</h4>
+        <div>{{ "footer.col_address.body" | thtml }}</div>
+        <div class="foot-contact">
+          <a href="tel:{{ "footer.col_address.phone_link" | t }}">{{ "footer.col_address.phone" | t }}</a>
+          <a href="mailto:{{ "footer.col_address.email" | t }}">{{ "footer.col_address.email" | t }}</a>
+        </div>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li><a href="{{ base }}/visit">Plan your visit</a></li>
+          <li><a href="{{ base }}/about">About &amp; beliefs</a></li>
+          <li><a href="{{ base }}/about#leadership">Leadership</a></li>
+          <li><a href="/events">This Sunday</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Listen &amp; grow</h4>
+        <ul>
+          <li><a href="/sermons">Sermon archive</a></li>
+          <li><a href="/groups">Community groups</a></li>
+          <li><a href="/events">Calendar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="/give">Give</a></li>
+          <li><a href="{{ "footer.social.instagram" | t }}">Instagram</a></li>
+          <li><a href="{{ "footer.social.facebook" | t }}">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>{{ "footer.bottom.left" | t }}</span>
+      <span>{{ "footer.bottom.right" | thtml }}</span>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ asset('design-switcher.js') }}"></script>
+</body>
+</html>

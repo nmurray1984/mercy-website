@@ -31,14 +31,17 @@ describe('build pipeline', () => {
 
   it('returns metadata with page list and content row count', () => {
     expect(meta.contentRows).toBeGreaterThanOrEqual(4);
-    expect(meta.pages.length).toBe(7); // index, visit, about, sermons, groups, events, give
+    // 7 live pages + 6 design-preview pages (2 designs x home/visit/about).
+    expect(meta.pages.length).toBe(13);
     expect(meta.durationMs).toBeGreaterThan(0);
   });
 
   it('writes an index.html for every page in the registry', () => {
     const expected = ['index.html',
       'visit/index.html', 'about/index.html', 'sermons/index.html',
-      'groups/index.html', 'events/index.html', 'give/index.html'];
+      'groups/index.html', 'events/index.html', 'give/index.html',
+      'designs/2/index.html', 'designs/2/visit/index.html', 'designs/2/about/index.html',
+      'designs/3/index.html', 'designs/3/visit/index.html', 'designs/3/about/index.html'];
     for (const rel of expected) {
       const full = path.join(config.publicDir, rel);
       expect(fs.existsSync(full)).toBe(true);

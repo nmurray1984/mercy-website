@@ -1,0 +1,153 @@
+{% extends "designs/bold/_layout.njk" %}
+{% block title %}{{ "home.title" | t }}{% endblock %}
+{% block description %}{{ "home.description" | t }}{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="dateline">{{ "home.hero.dateline" | thtml }}</div>
+    <h1>{{ "home.hero.headline" | thtml }}</h1>
+    <div class="hero-grid">
+      <div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="{{ base }}/visit" class="btn btn-accent">Plan your visit <span class="arrow">&rarr;</span></a>
+          <a href="/sermons" class="btn">Listen</a>
+        </div>
+      </div>
+      <div>
+        <div class="hero-img"><img src="{{ "home.hero.image" | timg }}" alt="{{ "home.hero.image_alt" | t }}" /></div>
+        <div class="hero-meta">{{ "home.hero.meta" | thtml }}</div>
+      </div>
+    </div>
+
+    <div class="hero-cards">
+      <a href="{{ base }}/visit" class="hero-card">
+        <span class="num-lg">01</span>
+        <h4>{{ "home.hero_card_1.title" | te }}</h4>
+        <p>{{ "home.hero_card_1.desc" | te }}</p>
+      </a>
+      <a href="/sermons" class="hero-card">
+        <span class="num-lg">02</span>
+        <h4>{{ "home.hero_card_2.title" | te }}</h4>
+        <p>{{ "home.hero_card_2.desc" | te }}</p>
+      </a>
+      <a href="/groups" class="hero-card">
+        <span class="num-lg">03</span>
+        <h4>{{ "home.hero_card_3.title" | te }}</h4>
+        <p>{{ "home.hero_card_3.desc" | te }}</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Pull quote -->
+<section class="pull-quote invert">
+  <div class="container-narrow">
+    <blockquote>{{ "home.pullquote.body" | thtml }}</blockquote>
+    <div class="attr">{{ "home.pullquote.attr" | t }}</div>
+  </div>
+</section>
+
+<!-- Three commitments -->
+<section>
+  <div class="container">
+    <div class="sec-head"><span class="idx">01</span><span class="name">Our three commitments</span></div>
+    <div class="commitments">
+      <div class="commitment">
+        <span class="num-lg">I</span>
+        <h3>{{ "home.commitments.gathering.title" | te }}</h3>
+        <p>{{ "home.commitments.gathering.body" | thtml }}</p>
+        <div class="verse">{{ "home.commitments.gathering.verse" | te }}</div>
+      </div>
+      <div class="commitment">
+        <span class="num-lg">II</span>
+        <h3>{{ "home.commitments.growing.title" | te }}</h3>
+        <p>{{ "home.commitments.growing.body" | thtml }}</p>
+        <div class="verse">{{ "home.commitments.growing.verse" | te }}</div>
+      </div>
+      <div class="commitment">
+        <span class="num-lg">III</span>
+        <h3>{{ "home.commitments.going.title" | te }}</h3>
+        <p>{{ "home.commitments.going.body" | thtml }}</p>
+        <div class="verse">{{ "home.commitments.going.verse" | te }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured sermon -->
+<section class="invert">
+  <div class="container">
+    <div class="sec-head"><span class="idx">02</span><span class="name">This Sunday's sermon</span></div>
+    <div class="featured">
+      <div class="featured-art">
+        <img src="{{ "home.featured.image" | timg }}" alt="{{ "home.featured.image_alt" | t }}" onerror="this.style.display='none'" />
+        <div class="series-label">{{ "home.featured.series_label" | t }}</div>
+      </div>
+      <div>
+        <div class="eyebrow"><span class="num">{{ "home.featured.eyebrow_num" | t }}</span>{{ "home.featured.eyebrow_date" | t }}</div>
+        <h2>{{ "home.featured.title" | thtml }}</h2>
+        <div class="passage">{{ "home.featured.passage" | t }}</div>
+        <p>{{ "home.featured.summary" | thtml }}</p>
+        <div class="audio">
+          <button class="play" aria-label="Play sermon"></button>
+          <div class="info">{{ "home.featured.audio_title" | t }}</div>
+        </div>
+        <div class="mt-40"><a href="/sermons" class="link-arrow">Read &amp; listen <span class="arrow">&rarr;</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent series -->
+<section>
+  <div class="container">
+    <div class="sec-head"><span class="idx">03</span><span class="name">Recent series</span></div>
+    <div class="three-up">
+      <a href="/sermons" class="s-card">
+        <div class="eyebrow">{{ "home.series_1.eyebrow" | t }}</div>
+        <h3>{{ "home.series_1.title" | thtml }}</h3>
+        <p>{{ "home.series_1.body" | thtml }}</p>
+      </a>
+      <a href="/sermons" class="s-card">
+        <div class="eyebrow">{{ "home.series_2.eyebrow" | t }}</div>
+        <h3>{{ "home.series_2.title" | thtml }}</h3>
+        <p>{{ "home.series_2.body" | thtml }}</p>
+      </a>
+      <a href="/sermons" class="s-card">
+        <div class="eyebrow">{{ "home.series_3.eyebrow" | t }}</div>
+        <h3>{{ "home.series_3.title" | thtml }}</h3>
+        <p>{{ "home.series_3.body" | thtml }}</p>
+      </a>
+    </div>
+    <div class="mt-40"><a href="/sermons" class="btn">All sermons <span class="arrow">&rarr;</span></a></div>
+  </div>
+</section>
+
+<!-- Upcoming events -->
+<section class="invert">
+  <div class="container">
+    <div class="sec-head"><span class="idx">04</span><span class="name">In the week ahead</span></div>
+    <div class="events">{{ "home.events.body" | thtml }}</div>
+    <div class="mt-40"><a href="/events" class="btn">Full calendar <span class="arrow">&rarr;</span></a></div>
+  </div>
+</section>
+
+<!-- First-time visitor -->
+<section>
+  <div class="container">
+    <div class="sec-head"><span class="idx">05</span><span class="name">If you're new</span></div>
+    <div class="split">
+      <div><h2>{{ "home.firsttime.headline" | thtml }}</h2></div>
+      <div>
+        <p class="dropcap">{{ "home.firsttime.body_1" | thtml }}</p>
+        <p>{{ "home.firsttime.body_2" | thtml }}</p>
+        <div class="mt-40"><a href="{{ base }}/visit" class="btn btn-accent">Plan your visit <span class="arrow">&rarr;</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

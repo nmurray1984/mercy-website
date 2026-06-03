@@ -1,0 +1,101 @@
+{% extends "designs/bold/_layout.njk" %}
+{% block title %}{{ "about.title" | t }}{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+  <div class="container">
+    <div class="kicker">{{ "about.kicker" | t }}</div>
+    <h1>{{ "about.headline" | thtml }}</h1>
+    <p class="deck">{{ "about.deck" | t }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-head"><span class="idx">01</span><span class="name">Our mission</span></div>
+    <div class="split narrow">
+      <div></div>
+      <div>
+        <p style="font-family:var(--display); font-weight:500; font-size:clamp(1.6rem,3.4vw,2.6rem); line-height:1.1; text-transform:uppercase; letter-spacing:-0.02em;">{{ "about.mission.body" | thtml }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="invert">
+  <div class="container">
+    <div class="sec-head"><span class="idx">02</span><span class="name">Three commitments</span></div>
+    <div class="commitments">
+      <div class="commitment">
+        <span class="num-lg">I</span>
+        <h3>{{ "about.commitments.gathering.title" | t }}</h3>
+        <p>{{ "about.commitments.gathering.body" | thtml }}</p>
+        <div class="verse">{{ "about.commitments.gathering.verse" | t }}</div>
+      </div>
+      <div class="commitment">
+        <span class="num-lg">II</span>
+        <h3>{{ "about.commitments.growing.title" | t }}</h3>
+        <p>{{ "about.commitments.growing.body" | thtml }}</p>
+        <div class="verse">{{ "about.commitments.growing.verse" | t }}</div>
+      </div>
+      <div class="commitment">
+        <span class="num-lg">III</span>
+        <h3>{{ "about.commitments.going.title" | t }}</h3>
+        <p>{{ "about.commitments.going.body" | thtml }}</p>
+        <div class="verse">{{ "about.commitments.going.verse" | t }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-head"><span class="idx">03</span><span class="name">What we believe</span></div>
+    <div class="split">
+      <div><h2>{{ "about.beliefs.headline" | thtml }}</h2></div>
+      <div>
+        <p class="dropcap">{{ "about.beliefs.body_1" | thtml }}</p>
+        <p>{{ "about.beliefs.body_2" | thtml }}</p>
+        <div class="mt-40" style="display:flex; gap:24px; flex-wrap:wrap;">
+          <a href="{{ "about.beliefs.link_1_url" | t }}" class="link-arrow">{{ "about.beliefs.link_1_text" | t }} <span class="arrow">&rarr;</span></a>
+          <a href="{{ "about.beliefs.link_2_url" | t }}" class="link-arrow">{{ "about.beliefs.link_2_text" | t }} <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership" class="invert">
+  <div class="container">
+    <div class="sec-head"><span class="idx">04</span><span class="name">Our staff</span></div>
+    <h2 class="mb-40">{{ "about.staff.headline" | thtml }}</h2>
+    <div class="leaders">{{ "about.staff.body" | thtml }}</div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="sec-head"><span class="idx">05</span><span class="name">Session of Elders</span></div>
+        <p class="muted" style="margin-bottom:24px;">{{ "about.elders.intro" | thtml }}</p>
+        <div class="block roster">{{ "about.elders.body" | thtml }}</div>
+      </div>
+      <div>
+        <div class="sec-head"><span class="idx">06</span><span class="name">Diaconate</span></div>
+        <p class="muted" style="margin-bottom:24px;">{{ "about.deacons.intro" | thtml }}</p>
+        <div class="block roster">{{ "about.deacons.body" | thtml }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pull-quote invert">
+  <div class="container-narrow">
+    <blockquote>{{ "about.pullquote.body" | thtml }}</blockquote>
+    <div class="attr">{{ "about.pullquote.attr" | t }}</div>
+  </div>
+</section>
+
+{% endblock %}

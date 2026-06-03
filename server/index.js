@@ -170,6 +170,16 @@ app.use((req, res, next) => {
 // Health check (no auth).
 app.get('/healthz', (req, res) => res.json({ ok: true }));
 
+// Identity probe (no auth). The public, statically-served pages use this to
+// decide whether to reveal the admin-only design switcher. Returns the
+// signed-in user when there is one, otherwise { user: null }. res.locals.user
+// is populated by the session middleware above.
+app.get('/api/me', (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  const u = res.locals.user;
+  res.json({ user: u ? { email: u.email, role: u.role } : null });
+});
+
 // /admin/login — GET is unauthenticated.
 app.get('/admin/login', (req, res) => {
   res.render('login', {

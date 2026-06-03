@@ -1,0 +1,86 @@
+{% extends "designs/bold/_layout.njk" %}
+{% block title %}{{ "visit.title" | t }}{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+  <div class="container">
+    <div class="kicker">{{ "visit.kicker" | t }}</div>
+    <h1>{{ "visit.headline" | thtml }}</h1>
+    <p class="deck">{{ "visit.deck" | t }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-head"><span class="idx">01</span><span class="name">A letter to you</span></div>
+    <div class="split">
+      <div></div>
+      <div>
+        <p class="dropcap">{{ "visit.letter.body_1" | thtml }}</p>
+        <p>{{ "visit.letter.body_2" | thtml }}</p>
+        <p style="margin-top:24px; font-family:var(--display); text-transform:uppercase; color:var(--accent); font-weight:600;">{{ "visit.letter.signature" | thtml }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="invert">
+  <div class="container">
+    <div class="sec-head"><span class="idx">02</span><span class="name">The order of worship</span></div>
+    <div class="bulletin" style="border-color:var(--paper);">
+      <div class="bulletin-head" style="border-color:rgba(255,255,255,0.2);">
+        <div class="ord">{{ "visit.bulletin.subtitle" | t }}</div>
+        <h3>{{ "visit.bulletin.title" | t }}</h3>
+      </div>
+      <ul>{{ "visit.bulletin.items" | thtml }}</ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-head"><span class="idx">03</span><span class="name">What you'll want to know</span></div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>{{ "visit.info.where.title" | t }}</h3>
+        <p>{{ "visit.info.where.body" | thtml }}</p>
+        <div class="addr">{{ "visit.info.where.address" | t }}</div>
+      </div>
+      <div class="info-card">
+        <h3>{{ "visit.info.wear.title" | t }}</h3>
+        <p>{{ "visit.info.wear.body" | thtml }}</p>
+      </div>
+      <div class="info-card">
+        <h3>{{ "visit.info.communion.title" | t }}</h3>
+        <p>{{ "visit.info.communion.body" | thtml }}</p>
+      </div>
+      <div class="info-card">
+        <h3>{{ "visit.info.children.title" | t }}</h3>
+        <p>{{ "visit.info.children.body" | thtml }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-head"><span class="idx">04</span><span class="name">After the benediction</span></div>
+    <div class="split">
+      <div>
+        <h2>{{ "visit.after.headline" | thtml }}</h2>
+      </div>
+      <div>
+        <p>{{ "visit.after.body_1" | thtml }}</p>
+        <p>{{ "visit.after.body_2" | thtml }}</p>
+        <div class="mt-40"><a href="mailto:{{ "footer.col_address.email" | t }}" class="btn btn-accent">Email us a question <span class="arrow">&rarr;</span></a></div>
+        <div class="block mt-40">
+          <div class="label" style="margin-bottom:16px;">Frequently asked</div>
+          {{ "visit.faq.body" | thtml }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

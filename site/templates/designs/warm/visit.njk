@@ -1,0 +1,89 @@
+{% extends "designs/warm/_layout.njk" %}
+{% block title %}{{ "visit.title" | t }}{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+  <div class="container">
+    <div class="kicker">{{ "visit.kicker" | t }}</div>
+    <h1>{{ "visit.headline" | thtml }}</h1>
+    <p class="deck">{{ "visit.deck" | t }}</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="section-label"><span class="roman">i.</span><span>A letter to you</span></div>
+      </div>
+      <div>
+        <p class="dropcap">{{ "visit.letter.body_1" | thtml }}</p>
+        <p>{{ "visit.letter.body_2" | thtml }}</p>
+        <p class="italic-display" style="margin-top:24px; font-size:1.3rem; color:var(--clay-deep);">{{ "visit.letter.signature" | thtml }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section>
+  <div class="container">
+    <div class="section-label center"><span class="roman">ii.</span><span>The order of worship</span></div>
+    <div class="bulletin">
+      <div class="bulletin-head">
+        <div class="ord">{{ "visit.bulletin.subtitle" | t }}</div>
+        <h3>{{ "visit.bulletin.title" | t }}</h3>
+      </div>
+      <ul>{{ "visit.bulletin.items" | thtml }}</ul>
+    </div>
+  </div>
+</section>
+
+<section class="bg-soft">
+  <div class="container">
+    <div class="section-label"><span class="roman">iii.</span><span>What you'll want to know</span></div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>{{ "visit.info.where.title" | t }}</h3>
+        <p>{{ "visit.info.where.body" | thtml }}</p>
+        <div class="addr">{{ "visit.info.where.address" | t }}</div>
+      </div>
+      <div class="info-card">
+        <h3>{{ "visit.info.wear.title" | t }}</h3>
+        <p>{{ "visit.info.wear.body" | thtml }}</p>
+      </div>
+      <div class="info-card">
+        <h3>{{ "visit.info.communion.title" | t }}</h3>
+        <p>{{ "visit.info.communion.body" | thtml }}</p>
+      </div>
+      <div class="info-card">
+        <h3>{{ "visit.info.children.title" | t }}</h3>
+        <p>{{ "visit.info.children.body" | thtml }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label"><span class="roman">iv.</span><span>After the benediction</span></div>
+    <div class="split">
+      <div>
+        <h2 style="margin-bottom:20px;">{{ "visit.after.headline" | thtml }}</h2>
+        <p>{{ "visit.after.body_1" | thtml }}</p>
+        <p>{{ "visit.after.body_2" | thtml }}</p>
+        <div class="mt-40"><a href="mailto:{{ "footer.col_address.email" | t }}" class="btn btn-solid">Email us a question <span class="arrow">&rarr;</span></a></div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="eyebrow" style="margin-bottom:16px;">Frequently asked</div>
+          {{ "visit.faq.body" | thtml }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
