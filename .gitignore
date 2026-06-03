@@ -1,5 +1,6 @@
 node_modules/
-# Build output (repo-root only; keep server/public/ for admin static assets)
+# Anchored to the repo root so this ignores the *generated* public site only,
+# not server/public/ (the admin's static assets, which must be committed).
 /public/
 logs/
 data/
