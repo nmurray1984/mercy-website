@@ -20,6 +20,7 @@ beforeAll(() => {
   fs.writeFileSync(path.join(tmpDir, 'tpl', 'asset.njk'), `{{ asset('styles.css') }}`);
   fs.writeFileSync(path.join(tmpDir, 'tpl', 'has.njk'),
     `{% if hasContent('home.body') %}yes{% else %}no{% endif %}`);
+  fs.writeFileSync(path.join(tmpDir, 'tpl', 'te.njk'), `{{ 'home.headline' | te }}`);
 
   env = buildEnv({
     templatesDir: path.join(tmpDir, 'tpl'),
@@ -87,6 +88,47 @@ describe('buildEnv filters', () => {
       assets: {},
     });
     expect(env2.render('has.njk')).toBe('no');
+  });
+});
+
+describe('editable mode', () => {
+  function editEnv() {
+    return buildEnv({
+      templatesDir: path.join(tmpDir, 'tpl'),
+      content: {
+        'home.headline': { value: 'Hello <world>', kind: 'text' },
+        'home.body':     { value: '**bold**', kind: 'markdown' },
+        'home.raw':      { value: '<em>raw</em>', kind: 'html' },
+        'home.hero':     { value: '/assets/img/hero.jpg', kind: 'image' },
+      },
+      assets: {},
+      editable: true,
+    });
+  }
+
+  it('"te" behaves exactly like "t" in the public (non-editable) build', () => {
+    // Public build output must be byte-for-byte unchanged.
+    expect(env.render('te.njk')).toBe(env.render('simple.njk'));
+  });
+
+  it('"te" wraps escaped text with edit metadata when editable', () => {
+    const out = editEnv().render('te.njk');
+    expect(out).toContain('data-mw-key="home.headline"');
+    expect(out).toContain('data-mw-kind="text"');
+    expect(out).toContain('Hello &lt;world&gt;'); // still escaped, not raw
+  });
+
+  it('"thtml" wraps raw HTML when editable', () => {
+    const out = editEnv().render('html.njk');
+    expect(out).toContain('class="mw-ed mw-ed-rich"');
+    expect(out).toContain('data-mw-kind="html"');
+    expect(out).toContain('<em>raw</em>');
+  });
+
+  it('records image keys on env.mwImages during an editable render', () => {
+    const e = editEnv();
+    e.render('img.njk');
+    expect(e.mwImages).toContainEqual({ key: 'home.hero', value: '/assets/img/hero.jpg' });
   });
 });
 

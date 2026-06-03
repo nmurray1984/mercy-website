@@ -1,6 +1,8 @@
 # Build the image from source only — never copy host artifacts.
 node_modules/
-public/
+# Anchored to root: keep the generated site out of the image, but still copy
+# server/public/ (the admin's static assets).
+/public/
 data/
 logs/
 *.sqlite
