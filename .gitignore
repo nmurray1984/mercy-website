@@ -1,5 +1,6 @@
 node_modules/
-public/
+# Build output (repo-root only; keep server/public/ for admin static assets)
+/public/
 logs/
 data/
 *.sqlite

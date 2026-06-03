@@ -159,6 +159,7 @@ app.use((req, res, next) => {
   // Pick a nav highlight from the path
   const p = req.path;
   if (p === '/admin' || p === '/admin/') res.locals.nav = 'dashboard';
+  else if (p.startsWith('/admin/edit')) res.locals.nav = 'edit';
   else if (p.startsWith('/admin/content')) res.locals.nav = 'content';
   else if (p.startsWith('/admin/media')) res.locals.nav = 'media';
   else if (p.startsWith('/admin/users')) res.locals.nav = 'users';
@@ -192,6 +193,9 @@ app.use('/admin', authRoutes); // shares POST /login and POST /logout
 
 // Admin page routes (server-rendered).
 require('./adminPages')(app);
+
+// In-page visual editor (admin only; inherits the /admin requireAuth above).
+require('./editor')(app);
 
 // JSON API routes (require auth via routers).
 app.use('/api/content', contentRoutes);
