@@ -73,6 +73,27 @@ describe('CSRF', () => {
     expect(res.status).toBe(403);
     expect(res.body.error).toMatch(/csrf/i);
   });
+
+  // Regression: rendering the login page must not rotate the CSRF cookie out
+  // from under a form that was already rendered. Previously the token getter
+  // ran with overwrite=true, so a second GET (a reload, the back button, a
+  // second tab, or a browser's speculative prefetch of /admin/login) minted a
+  // fresh cookie and the first form's token then failed with "invalid csrf
+  // token" — the login-fails-in-browsers-but-not-curl bug.
+  it('keeps a rendered form token valid after the login page is re-fetched', async () => {
+    const agent = newAgent(app);
+    const tokenA = await csrfToken(agent); // first render (e.g. the open tab)
+    const tokenB = await csrfToken(agent); // a second render overwrites the cookie
+    expect(tokenB).toBe(tokenA);           // token is reused, not rotated
+
+    // Submit the FIRST form's token; it must still be accepted.
+    const res = await agent
+      .post('/api/auth/login')
+      .set('x-csrf-token', tokenA)
+      .set('Accept', 'application/json')
+      .send({ email: seeded.admin.email, password: seeded.password });
+    expect(res.status).toBe(200);
+  });
 });
 
 describe('Lockout', () => {
