@@ -1,13 +1,11 @@
 /* ============================================================
-   Mercy — admin-only design switcher
+   Mercy — design preview switcher
    ------------------------------------------------------------
-   Injected on every public page. Asks /api/me whether the
-   current viewer is signed in; if so, renders a small bar at
-   the very top of the page that flips between the homepage,
-   visit, and about page rendered in each candidate design.
-
-   Regular visitors never see anything: /api/me returns
-   { user: null } and we bail out without touching the DOM.
+   Injected on every public page. Renders a small bar at the
+   very top that flips the home, visit, and about pages between
+   each candidate design. This is a public preview tool meant to
+   help everyone compare layouts, so it shows for all visitors
+   (no sign-in required).
    ============================================================ */
 (function () {
   'use strict';
@@ -86,9 +84,6 @@
     'color:#a8927a;text-decoration:none;padding:4px 8px;border-radius:4px;}',
     '.mw-design-bar__page:hover{color:#f4ecdc;}',
     '.mw-design-bar__page.is-active{color:#f4ecdc;background:#221c14;}',
-    '.mw-design-bar__admin{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;',
-    'color:#16130f;background:#d4a857;padding:5px 12px;border-radius:6px;text-decoration:none;}',
-    '.mw-design-bar__admin:hover{background:#e0b766;}',
     '@media(max-width:640px){.mw-design-bar__btn span{display:none;}',
     '.mw-design-bar__eyebrow{display:none;}}'
   ].join('');
@@ -101,7 +96,7 @@
     document.head.appendChild(s);
   }
 
-  function build(user) {
+  function build() {
     injectStyle();
     var here = locate();
 
@@ -140,13 +135,6 @@
       });
     }
 
-    var admin = document.createElement('a');
-    admin.className = 'mw-design-bar__admin';
-    admin.href = '/admin';
-    admin.textContent = 'Admin';
-    admin.title = 'Signed in as ' + (user.email || 'admin');
-    right.appendChild(admin);
-
     bar.appendChild(left);
     bar.appendChild(right);
 
@@ -155,12 +143,7 @@
   }
 
   function init() {
-    fetch('/api/me', { credentials: 'same-origin', headers: { Accept: 'application/json' } })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) {
-        if (data && data.user) build(data.user);
-      })
-      .catch(function () { /* offline or not signed in — show nothing */ });
+    build();
   }
 
   if (document.readyState === 'loading') {
