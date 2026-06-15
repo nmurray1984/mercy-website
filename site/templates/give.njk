@@ -15,21 +15,21 @@
   <div class="container">
     <div class="grid-12 in-view">
 
-      <div style="grid-column: span 6;">
+      <div class="col-6">
         <div class="section-label"><span class="roman">§ I.</span><span>Why we give</span></div>
-        <p class="dropcap" style="font-size: 1.1rem; line-height: 1.75;">
+        <p class="dropcap prose">
           {{ "give.why.body_1" | thtml }}
         </p>
-        <p style="font-size: 1.1rem; line-height: 1.75; margin-top: 18px;">
+        <p class="prose" style="margin-top: 18px;">
           {{ "give.why.body_2" | thtml }}
         </p>
-        <p style="font-size: 1.1rem; line-height: 1.75; margin-top: 18px;">
+        <p class="prose" style="margin-top: 18px;">
           {{ "give.why.body_3" | thtml }}
         </p>
 
-        <div style="margin-top: 56px;">
+        <div class="mt-48">
           <div class="section-label"><span class="roman">§ II.</span><span>Where it goes</span></div>
-          <dl style="display: grid; grid-template-columns: 1fr auto; gap: 14px 24px; font-size: 16px;">
+          <dl class="allocation-dl">
             {{ "give.allocation.body" | thtml }}
           </dl>
           <p class="muted" style="margin-top: 18px; font-size: 14px; font-style: italic;">
@@ -38,10 +38,10 @@
         </div>
       </div>
 
-      <div style="grid-column: span 6;">
+      <div class="col-6">
         <div class="give-form">
           <div class="eyebrow gold mb-16">Make a gift</div>
-          <h3 style="margin-bottom: 32px;">{{ "give.form.subhead" | t }}</h3>
+          <h3 class="mb-32">{{ "give.form.subhead" | t }}</h3>
 
           <label class="form-label">Frequency</label>
           <div class="frequency-grid">
@@ -72,14 +72,14 @@
             Continue to secure giving <span class="arrow">&rarr;</span>
           </a>
 
-          <p style="margin-top: 24px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); text-align: center;">
+          <p class="footnote mt-32">
             {{ "give.form.footnote" | t }}
           </p>
         </div>
 
-        <div style="margin-top: 32px; padding: 24px 28px; border: 1px dashed var(--rule); background: var(--paper-soft);">
+        <div class="callout-dashed mt-32">
           <div class="eyebrow gold mb-16">Other ways to give</div>
-          <ul style="list-style: none; font-size: 15px; line-height: 1.7;">
+          <ul>
             {{ "give.other_ways.body" | thtml }}
           </ul>
         </div>

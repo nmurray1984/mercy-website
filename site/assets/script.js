@@ -16,9 +16,11 @@
   const menu   = $('.mobile-menu');
   const close  = $('.mobile-menu-close');
   if (toggle && menu) {
-    toggle.addEventListener('click', () => menu.classList.add('open'));
-    if (close) close.addEventListener('click', () => menu.classList.remove('open'));
-    $$('.mobile-menu-list a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+    const openMenu  = () => { menu.classList.add('open'); menu.setAttribute('aria-hidden', 'false'); };
+    const closeMenu = () => { menu.classList.remove('open'); menu.setAttribute('aria-hidden', 'true'); };
+    toggle.addEventListener('click', openMenu);
+    if (close) close.addEventListener('click', closeMenu);
+    $$('.mobile-menu-list a').forEach(a => a.addEventListener('click', closeMenu));
   }
 
   // ---------- Audio player (visual only) ----------

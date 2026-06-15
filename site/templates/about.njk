@@ -14,11 +14,11 @@
 <section class="tight">
   <div class="container">
     <div class="grid-12 in-view">
-      <div style="grid-column: span 4;">
+      <div class="col-4">
         <div class="section-label"><span class="roman">§ I.</span><span>Our mission</span></div>
       </div>
-      <div style="grid-column: span 8;">
-        <p style="font-family: var(--display); font-size: 2rem; line-height: 1.25; font-weight: 300; font-variation-settings: 'SOFT' 70;">
+      <div class="col-8">
+        <p class="prose-xl">
           {{ "about.mission.body" | thtml }}
         </p>
       </div>
@@ -55,18 +55,18 @@
 <section>
   <div class="container">
     <div class="grid-12 in-view">
-      <div style="grid-column: span 5;">
+      <div class="col-5">
         <div class="section-label"><span class="roman">§ III.</span><span>What we believe</span></div>
         <h2>{{ "about.beliefs.headline" | thtml }}</h2>
       </div>
-      <div style="grid-column: span 7;">
-        <p class="dropcap" style="font-size: 1.05rem; line-height: 1.7;">
+      <div class="col-7">
+        <p class="dropcap prose">
           {{ "about.beliefs.body_1" | thtml }}
         </p>
-        <p style="margin-top: 18px; font-size: 1.05rem; line-height: 1.7; color: var(--ink-soft);">
+        <p class="prose text-soft" style="margin-top: 18px;">
           {{ "about.beliefs.body_2" | thtml }}
         </p>
-        <div class="mt-32" style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <div class="mt-32 link-group">
           <a href="{{ "about.beliefs.link_1_url" | t }}" class="link-arrow">{{ "about.beliefs.link_1_text" | t }} <span class="arrow">&rarr;</span></a>
           <a href="{{ "about.beliefs.link_2_url" | t }}" class="link-arrow">{{ "about.beliefs.link_2_text" | t }} <span class="arrow">&rarr;</span></a>
         </div>
@@ -88,17 +88,17 @@
 <section>
   <div class="container">
     <div class="grid-12">
-      <div style="grid-column: span 6;" class="in-view">
+      <div class="col-6 in-view">
         <div class="section-label"><span class="roman">§ V.</span><span>Session of Elders</span></div>
         <p class="muted mb-32">{{ "about.elders.intro" | thtml }}</p>
-        <div class="roster" style="grid-template-columns: 1fr;">
+        <div class="roster roster-single">
           {{ "about.elders.body" | thtml }}
         </div>
       </div>
-      <div style="grid-column: span 6;" class="in-view">
+      <div class="col-6 in-view">
         <div class="section-label"><span class="roman">§ VI.</span><span>Diaconate</span></div>
         <p class="muted mb-32">{{ "about.deacons.intro" | thtml }}</p>
-        <div class="roster" style="grid-template-columns: 1fr;">
+        <div class="roster roster-single">
           {{ "about.deacons.body" | thtml }}
         </div>
       </div>

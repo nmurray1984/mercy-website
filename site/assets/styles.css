@@ -219,7 +219,6 @@ section.tight { padding: clamp(40px, 5vw, 72px) 0; }
   font-size: 10.5px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ink-soft);
   background: var(--dark);
   color: var(--paper-on-dark);
   padding: 9px 0;
@@ -369,8 +368,7 @@ section.tight { padding: clamp(40px, 5vw, 72px) 0; }
   padding: 14px 0;
 }
 .btn-ghost::after {
-  content: "";
-  display: block;
+  content: none;
 }
 .btn-ghost:hover { background: transparent; color: var(--gold-deep); }
 
@@ -986,6 +984,7 @@ section.tight { padding: clamp(40px, 5vw, 72px) 0; }
   text-transform: uppercase;
   color: var(--gold-deep);
 }
+.roster-single { grid-template-columns: 1fr; }
 
 /* Groups (community groups directory) */
 
@@ -1213,9 +1212,25 @@ section.tight { padding: clamp(40px, 5vw, 72px) 0; }
   gap: 16px;
 }
 
+/* ---------- Focus styles ---------- */
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.nav-list a:focus-visible,
+.btn:focus-visible,
+.chip:focus-visible,
+.nav-give:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
 /* ---------- Misc utilities ---------- */
 
 .center { text-align: center; }
+.mt-16 { margin-top: 16px; }
 .mt-32 { margin-top: 32px; }
 .mt-48 { margin-top: 48px; }
 .mb-16 { margin-bottom: 16px; }
@@ -1227,6 +1242,45 @@ section.tight { padding: clamp(40px, 5vw, 72px) 0; }
 .bg-dark .section-label { color: var(--paper-on-dark); }
 .bg-dark .section-label .roman { color: var(--gold-on-dark); }
 .bg-dark h1, .bg-dark h2, .bg-dark h3 { color: var(--bone); }
+
+/* Grid column spans (replace inline style="grid-column: span N") */
+.col-4  { grid-column: span 4; }
+.col-5  { grid-column: span 5; }
+.col-6  { grid-column: span 6; }
+.col-7  { grid-column: span 7; }
+.col-8  { grid-column: span 8; }
+
+/* Prose body text (replace repeated inline font-size/line-height) */
+.prose       { font-size: 1.1rem; line-height: 1.7; }
+.prose-lg    { font-size: 1.15rem; line-height: 1.7; }
+.prose-xl    { font-family: var(--display); font-size: 2rem; line-height: 1.25; font-weight: 300; font-variation-settings: "SOFT" 70; }
+.text-soft   { color: var(--ink-soft); }
+.text-gold   { color: var(--gold-deep); }
+
+/* Signature / closing line */
+.signature   { font-family: var(--display); font-style: italic; font-size: 1.3rem; color: var(--gold-deep); font-variation-settings: "SOFT" 80; }
+
+/* Inline mono address label */
+.address-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); }
+
+/* Centered section label variant */
+.section-label.center { justify-content: center; }
+
+/* Footnote text */
+.footnote { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); text-align: center; }
+
+/* Link group */
+.link-group { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Allocation definition list */
+.allocation-dl { display: grid; grid-template-columns: 1fr auto; gap: 14px 24px; font-size: 16px; }
+
+/* Other-ways callout box */
+.callout-dashed { padding: 24px 28px; border: 1px dashed var(--rule); background: var(--paper-soft); }
+.callout-dashed ul { list-style: none; font-size: 15px; line-height: 1.7; }
+
+/* No-top-padding section variant */
+.section-flush { padding-top: 0; }
 
 /* ---------- Animation: page load reveal ---------- */
 
@@ -1403,6 +1457,37 @@ section.tight { padding: clamp(40px, 5vw, 72px) 0; }
   .leaders { grid-template-columns: 1fr; }
   .wordmark .sub { display: none; }
 }
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .in-view { opacity: 1; transform: none; }
+  .reveal { opacity: 1; transform: none; animation: none; }
+}
+
+/* ---------- Skip link ---------- */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 12px 24px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  z-index: 200;
+  transition: top 0.15s var(--ease);
+}
+.skip-link:focus { top: 8px; }
 
 /* Mobile nav overlay */
 .mobile-menu {

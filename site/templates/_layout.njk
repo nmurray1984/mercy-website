@@ -11,10 +11,14 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 {% include "_partials/header.njk" %}
 {% include "_partials/mobile-menu.njk" %}
 
+<main id="main">
 {% block content %}{% endblock %}
+</main>
 
 {% include "_partials/footer.njk" %}
 

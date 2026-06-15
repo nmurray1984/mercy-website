@@ -14,19 +14,19 @@
 <section class="tight">
   <div class="container">
     <div class="grid-12 in-view">
-      <div style="grid-column: span 4;">
+      <div class="col-4">
         <div class="section-label">
           <span class="roman">§ I.</span><span>A letter to you</span>
         </div>
       </div>
-      <div style="grid-column: span 8;">
-        <p class="dropcap" style="font-size: 1.2rem; line-height: 1.7;">
+      <div class="col-8">
+        <p class="dropcap prose-lg">
           {{ "visit.letter.body_1" | thtml }}
         </p>
-        <p style="margin-top: 24px; font-size: 1.1rem; line-height: 1.7; color: var(--ink-soft);">
+        <p class="prose text-soft mt-32">
           {{ "visit.letter.body_2" | thtml }}
         </p>
-        <p style="margin-top: 24px; font-family: var(--display); font-style: italic; font-size: 1.3rem; color: var(--gold-deep); font-variation-settings: 'SOFT' 80;">
+        <p class="signature mt-32">
           {{ "visit.letter.signature" | thtml }}
         </p>
       </div>
@@ -38,7 +38,7 @@
 
 <section>
   <div class="container">
-    <div class="section-label center" style="justify-content: center;">
+    <div class="section-label center">
       <span class="roman">§ II.</span><span>The order of worship</span>
     </div>
     <div class="bulletin in-view">
@@ -58,21 +58,21 @@
     <div class="section-label in-view"><span class="roman">§ III.</span><span>What you'll want to know</span></div>
     <div class="two-up in-view" style="gap: 64px;">
       <div>
-        <h3 style="margin-bottom: 16px;">{{ "visit.info.where.title" | t }}</h3>
-        <p style="color: var(--ink-soft);">{{ "visit.info.where.body" | thtml }}</p>
-        <div style="margin-top: 24px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep);">{{ "visit.info.where.address" | t }}</div>
+        <h3 class="mb-16">{{ "visit.info.where.title" | t }}</h3>
+        <p class="text-soft">{{ "visit.info.where.body" | thtml }}</p>
+        <div class="address-label mt-32">{{ "visit.info.where.address" | t }}</div>
       </div>
       <div>
-        <h3 style="margin-bottom: 16px;">{{ "visit.info.wear.title" | t }}</h3>
-        <p style="color: var(--ink-soft);">{{ "visit.info.wear.body" | thtml }}</p>
+        <h3 class="mb-16">{{ "visit.info.wear.title" | t }}</h3>
+        <p class="text-soft">{{ "visit.info.wear.body" | thtml }}</p>
       </div>
       <div>
-        <h3 style="margin-bottom: 16px;">{{ "visit.info.communion.title" | t }}</h3>
-        <p style="color: var(--ink-soft);">{{ "visit.info.communion.body" | thtml }}</p>
+        <h3 class="mb-16">{{ "visit.info.communion.title" | t }}</h3>
+        <p class="text-soft">{{ "visit.info.communion.body" | thtml }}</p>
       </div>
       <div>
-        <h3 style="margin-bottom: 16px;">{{ "visit.info.children.title" | t }}</h3>
-        <p style="color: var(--ink-soft);">{{ "visit.info.children.body" | thtml }}</p>
+        <h3 class="mb-16">{{ "visit.info.children.title" | t }}</h3>
+        <p class="text-soft">{{ "visit.info.children.body" | thtml }}</p>
       </div>
     </div>
   </div>
@@ -82,19 +82,19 @@
   <div class="container">
     <div class="section-label in-view"><span class="roman">§ IV.</span><span>After the benediction</span></div>
     <div class="grid-12 in-view">
-      <div style="grid-column: span 7;">
-        <h2 style="margin-bottom: 24px;">{{ "visit.after.headline" | thtml }}</h2>
-        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--ink-soft);">
+      <div class="col-7">
+        <h2 class="mb-32">{{ "visit.after.headline" | thtml }}</h2>
+        <p class="prose text-soft">
           {{ "visit.after.body_1" | thtml }}
         </p>
-        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--ink-soft); margin-top: 16px;">
+        <p class="prose text-soft" style="margin-top: 16px;">
           {{ "visit.after.body_2" | thtml }}
         </p>
         <div class="mt-32">
           <a href="mailto:{{ "footer.col_address.email" | t }}" class="btn btn-solid">Email us a question <span class="arrow">&rarr;</span></a>
         </div>
       </div>
-      <div style="grid-column: span 5;">
+      <div class="col-5">
         <div class="card">
           <div class="eyebrow gold mb-16">Frequently asked</div>
           {{ "visit.faq.body" | thtml }}
